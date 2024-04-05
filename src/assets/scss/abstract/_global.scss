@@ -1,0 +1,20 @@
+* {
+  font-family: $light-font;
+}
+.text-primary-md {
+  color: $primary-md;
+}
+.text-45 {
+  font-size: 45px;
+}
+.p-fixed {
+  position: fixed !important;
+  z-index: 9;
+}
+a {
+  text-transform: capitalize !important;
+}
+.prices-section {
+  background-image: url("../../assets/images/price-b.png");
+  background-size: cover;
+}

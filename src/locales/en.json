@@ -1,0 +1,51 @@
+{
+  "languages": {
+    "ar": "Arabic",
+    "en": "English"
+  },
+  "header":{
+    "home":"home ",
+    "pointer":"pointer",
+    "comparison":"Comparison",
+    "search":"search",
+    "reports":"Reports",
+    "inquiries":"Inquiries",
+    "login":"login "
+  },
+  "home" : {
+    "numbers": {
+      "title": "numbers",
+      "body": "numbers body",
+      "house": {
+        "title": "house contracts",
+        "body": "house contracts body"
+      },
+      "commercial": {
+        "title": "commercial",
+        "body": "commercial body   (25%)"
+      },
+
+      "buildings": {
+        "title": "buildings",
+        "body": "buildings body (25%)"
+      },
+      "deals": {
+        "title": "deals",
+        "body": "deals body   (25%)"
+      }
+    },
+    "deals":{
+      "title":"new deals",
+      "body":"loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream ",
+      "contact":"contact"
+    },
+    "prices":{
+      "title":"new prices",
+      "body":"loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream ",
+      "more":"more"
+    }
+  },
+  "footer": {
+    "text": "All rights reserved for Ijar"
+  } 
+}

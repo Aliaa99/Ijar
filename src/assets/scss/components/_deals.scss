@@ -1,0 +1,23 @@
+.deals_section{
+    background-color: $light-gray;
+    position: relative;
+    img {
+        position: absolute;
+        max-width: 200px;
+        bottom: 0;
+        $breakpoint-tablet: 768px;
+    @media (max-width: $breakpoint-tablet) {
+       display: none;
+    }
+
+    }
+    // background-image: url('../../images/user.png');
+    // &::after{
+    //   background-image: url('../../images/user.png');
+    //   position: absolute;
+    //   right: 0px;
+    //   top: 0;
+    //   width: 200px;
+    //   height: 200px;
+    // }
+}

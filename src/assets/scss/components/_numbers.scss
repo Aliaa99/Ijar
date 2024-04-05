@@ -1,0 +1,29 @@
+.numbers-card{
+    min-height: 100%;
+    border-radius: 16px !important;
+    padding: 10px !important;
+    &--house {
+        background-color: $light-purple !important;
+        .v-avatar {
+            background-color: $purple !important;
+        }
+    }
+    &--commercial {
+        background-color: $light-green !important;
+        .v-avatar {
+            background-color: $green !important;
+        }
+    }
+    &--buildings {
+        background-color: $light-orange !important;
+        .v-avatar {
+            background-color: $orange !important;
+        }
+    }
+    &--deals {
+        background-color: $light-red !important;
+        .v-avatar {
+            background-color: $red !important;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+
+.transparent {
+    background-color: transparent !important;
+    .v-list-item { 
+        color: $black !important;
+        font-weight: bold;
+        &--active{
+            background-color: transparent;
+            color: $primary-md !important;
+        }
+        &__overlay {
+            display: none !important;
+        }
+    }
+}
+.app-language {
+    border: 1px solid $primary-md;
+    height: 36px;
+    margin: 0 .5rem;
+    padding: 0 .25rem;
+    text-transform: capitalize;
+    border-radius: 4px;
+}
+
+//navigation
+.mobile-style{
+    background-color: transparent;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+
+}
+.nav-dr{
+    .v-list-item { 
+        color: $black !important;
+        font-weight: bold;
+        &--active{
+            background-color: transparent;
+            color: $primary-md !important;
+        }
+        &__overlay {
+            display: none !important;
+        }
+    }
+}
+.changecolor{
+    background-color: white !important;
+}
