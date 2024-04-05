@@ -57,6 +57,12 @@
             :key="i"
             :title="item.title"
           ></v-list-item>
+          <v-list-item>
+            <v-btn class="bg-primary" to="/login">
+              {{ $t("header.login") }}
+            </v-btn>
+            <slot />
+          </v-list-item>
         </v-list>
       </v-navigation-drawer>
       <v-main style="height: auto">
