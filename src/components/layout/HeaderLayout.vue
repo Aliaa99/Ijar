@@ -4,7 +4,7 @@
     <v-toolbar
       id="header"
       clipped-left
-      class="hidden-sm-and-down p-fixed transparent  "
+      class="hidden-sm-and-down p-fixed transparent"
     >
       <v-container>
         <!-- {{ active }} -->
@@ -27,6 +27,7 @@
             <v-toolbar-items>
               <v-list class="d-flex py-0 transparent">
                 <v-list-item
+                  class="text-18"
                   flat
                   :to="item.go"
                   v-for="(item, i) in items"
@@ -37,7 +38,7 @@
             </v-toolbar-items>
           </v-col>
           <v-col lg="2" cols="3" class="d-flex align-center justify-end">
-            <v-btn class="bg-primary" to="/login">
+            <v-btn color="primary" variant="flat" to="/login">
               {{ $t("header.login") }}
             </v-btn>
             <slot />
@@ -58,7 +59,7 @@
             :title="item.title"
           ></v-list-item>
           <v-list-item>
-            <v-btn class="bg-primary" to="/login">
+            <v-btn color="primary" variant="flat" to="/login">
               {{ $t("header.login") }}
             </v-btn>
             <slot />
@@ -76,7 +77,7 @@
               />
             </v-col>
 
-            <v-col cols="2" >
+            <v-col cols="2">
               <v-btn color="primary" @click.stop="drawer = !drawer">
                 <v-icon class="hidden-md-and-up" icon="mdi-menu" size="large">
                 </v-icon>

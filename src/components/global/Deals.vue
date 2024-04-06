@@ -7,8 +7,8 @@
         </v-col>
         <v-col lg="7" md="9" sm="6" xs="10" cols="12">
           <article>
-            <h2>{{ $t("home.deals.title") }}</h2>
-            <p class="pt-2">{{ $t("home.deals.body") }}</p>
+            <h2 class="text-36">{{ $t("home.deals.title") }}</h2>
+            <p class="pt-2 text-18">{{ $t("home.deals.body") }}</p>
           </article>
         </v-col>
 

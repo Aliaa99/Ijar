@@ -3,7 +3,7 @@
     <v-container class="py-5">
       <v-row>
         <v-col lg="7" md="6" cols="12">
-          <section class="d-flex align-center justify-end h-100">
+          <section class="d-flex align-center justify-start h-100">
             <article>
               <h1 class="text-45">
                 <span>{{ $t("home.intro.title") }}</span>
@@ -11,7 +11,7 @@
                 <span class="text-primary">{{ $t("home.intro.sub_title") + ' ' }}</span>
                 <span>{{ $t("home.intro.private") }}</span>
               </h1>
-              <p class="py-8 text-22">{{ $t("home.intro.body") }}</p>
+              <p class="pt-8 pb-10 text-22">{{ $t("home.intro.body") }}</p>
               <v-btn color="primary" variant="flat" size="large" to="/">
                 {{ $t("home.intro.more") }}
               </v-btn>

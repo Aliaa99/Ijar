@@ -1,6 +1,6 @@
 <template>
-    <footer class="text-center py-5">
-        <p>{{ $t('footer.text') }}</p>
+    <footer class="text-center py-7">
+        <p class="text-22">{{ $t('footer.text') }}</p>
     </footer>
 </template>
 
