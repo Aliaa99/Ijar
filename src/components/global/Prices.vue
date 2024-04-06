@@ -2,10 +2,12 @@
   <section class="my-12 py-12 prices-section">
     <v-container class="py-5">
       <v-row>
-        <v-col lg="6" class="d-flex align-center">
+        <v-col md="6" sm="12" cols="12" class="d-flex align-center">
           <section>
             <article>
-              <h2 class="text-primary text-36">{{ $t("home.prices.title") }}</h2>
+              <h2 class="text-primary text-36">
+                {{ $t("home.prices.title") }}
+              </h2>
               <p class="pb-7 pt-4 text-18">{{ $t("home.prices.body") }}</p>
             </article>
             <v-btn color="primary" variant="flat" size="large" to="/pointer">
@@ -14,7 +16,7 @@
           </section>
         </v-col>
 
-        <v-col lg="6">
+        <v-col md="6" sm="12" cols="12">
           <Chart />
         </v-col>
       </v-row>

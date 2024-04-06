@@ -27,7 +27,6 @@
             <v-toolbar-items>
               <v-list class="d-flex py-0 transparent">
                 <v-list-item
-                  class="text-18"
                   flat
                   :to="item.go"
                   v-for="(item, i) in items"
