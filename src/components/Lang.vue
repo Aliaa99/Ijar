@@ -1,16 +1,5 @@
-<!-- <script setup>
-import { watch } from 'vue';
-import { useI18n } from 'vue-i18n';
-import { SUPPORT_LOCALES as supportLocales, setI18nLanguage } from '@/plugins/i18n';
-
-const { locale } = useI18n({ useScope: 'global' });
-watch(locale, (val) => {
-  setI18nLanguage(val);
-});
-</script> -->
-
 <template>
-  <select class="app-language" v-model="locale">
+  <select class="app-language ms-2" v-model="locale">
     <option
       v-for="optionLocale in supportedLocales"
       :key="`locale-${optionLocale}`"

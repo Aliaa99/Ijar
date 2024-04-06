@@ -11,3 +11,4 @@
   import Deals from '@/components/global/Deals.vue'
   import Prices from '@/components/global/Prices.vue'
 </script>
+

@@ -6,9 +6,10 @@
         max-width: 200px;
         bottom: 0;
         $breakpoint-tablet: 768px;
-    @media (max-width: $breakpoint-tablet) {
-       display: none;
-    }
+            @media (max-width: $breakpoint-tablet) {
+            width: auto;
+            position: relative;
+            }
 
     }
     // background-image: url('../../images/user.png');

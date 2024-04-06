@@ -18,20 +18,24 @@
       "body": "numbers body",
       "house": {
         "title": "house contracts",
-        "body": "house contracts body"
+        "body": "house contracts body",
+        "average": "house contracts 25%"
       },
       "commercial": {
         "title": "commercial",
-        "body": "commercial body   (25%)"
+        "body": "commercial body",
+        "average": "commercial 25%"
       },
 
       "buildings": {
         "title": "buildings",
-        "body": "buildings body (25%)"
+        "body": "buildings body",
+        "average": "buildings 25%"
       },
       "deals": {
         "title": "deals",
-        "body": "deals body   (25%)"
+        "body": "deals body",
+        "average": "deals 25%"
       }
     },
     "deals":{

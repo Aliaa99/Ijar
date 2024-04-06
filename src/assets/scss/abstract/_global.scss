@@ -1,5 +1,6 @@
 * {
-  font-family: $light-font;
+  font-family: $medium-font;
+  font-weight: 500;
 }
 .text-primary-md {
   color: $primary-md;
@@ -7,14 +8,23 @@
 .text-45 {
   font-size: 45px;
 }
+.text-22 {
+  font-size: 22px;
+}
 .p-fixed {
   position: fixed !important;
   z-index: 9;
 }
 a {
   text-transform: capitalize !important;
+  letter-spacing: 0 !important;
 }
-.prices-section {
-  background-image: url("../../assets/images/price-b.png");
-  background-size: cover;
+main {
+  background-image: url("../../assets/images/bg.png") !important;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+#root {
+  white-space: pre-line;
 }

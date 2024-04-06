@@ -1,14 +1,14 @@
 @font-face {
-    font-family: 'dinar normal';
-    src: url('GEDinarTwo-Light.woff2') format('woff2'),
-        url('GEDinarTwo-Light.woff') format('woff');
-    font-weight: 300;
+    font-family: 'dinar md';
+    src: url('GEDinarTwo-Medium.woff2') format('woff2'),
+        url('GEDinarTwo-Medium.woff') format('woff');
+    font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'dinar medium';
+    font-family: 'GE Dinar Two';
     src: url('GEDinarTwo-Medium.woff2') format('woff2'),
         url('GEDinarTwo-Medium.woff') format('woff');
     font-weight: 500;

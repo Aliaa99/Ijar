@@ -4,7 +4,7 @@
     <v-toolbar
       id="header"
       clipped-left
-      class="hidden-sm-and-down p-fixed transparent"
+      class="hidden-sm-and-down p-fixed transparent  "
     >
       <v-container>
         <!-- {{ active }} -->
@@ -36,7 +36,7 @@
               </v-list>
             </v-toolbar-items>
           </v-col>
-          <v-col lg="2" cols="3" class="d-flex align-center">
+          <v-col lg="2" cols="3" class="d-flex align-center justify-end">
             <v-btn class="bg-primary" to="/login">
               {{ $t("header.login") }}
             </v-btn>
@@ -67,16 +67,16 @@
       </v-navigation-drawer>
       <v-main style="height: auto">
         <div class="mobile-style pt-5" id="header2">
-          <v-row>
-            <v-col cols="1">
+          <v-row justify="space-between">
+            <v-col cols="2">
               <img
                 src="../../assets/images/logo.png"
                 class="pr-5"
-                style="width: 95px"
+                style="width: 100px"
               />
             </v-col>
 
-            <v-col cols="2" offset="9">
+            <v-col cols="2" >
               <v-btn color="primary" @click.stop="drawer = !drawer">
                 <v-icon class="hidden-md-and-up" icon="mdi-menu" size="large">
                 </v-icon>

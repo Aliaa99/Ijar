@@ -1,29 +1,46 @@
-.numbers-card{
+.numbers {
+  article {
+    @media(min-width: 1024px) {
+        h2 {
+            font-size: 40px;
+        }
+        p {
+          color: $black;
+          font-size: 26px;
+          white-space: pre;
+        }
+    }
+  }
+  &-card {
     min-height: 100%;
     border-radius: 16px !important;
     padding: 10px !important;
     &--house {
-        background-color: $light-purple !important;
-        .v-avatar {
-            background-color: $purple !important;
-        }
+      background-color: $light-purple !important;
+      .v-avatar {
+        background-color: $purple !important;
+      }
     }
     &--commercial {
-        background-color: $light-green !important;
-        .v-avatar {
-            background-color: $green !important;
-        }
+      background-color: $light-green !important;
+      .v-avatar {
+        background-color: $green !important;
+      }
     }
     &--buildings {
-        background-color: $light-orange !important;
-        .v-avatar {
-            background-color: $orange !important;
-        }
+      background-color: $light-orange !important;
+      .v-avatar {
+        background-color: $orange !important;
+      }
     }
     &--deals {
-        background-color: $light-red !important;
-        .v-avatar {
-            background-color: $red !important;
-        }
+      background-color: $light-red !important;
+      .v-avatar {
+        background-color: $red !important;
+      }
     }
+    .v-card-text {
+      line-height: 2rem !important;
+    }
+  }
 }
