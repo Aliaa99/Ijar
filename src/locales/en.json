@@ -92,13 +92,28 @@
     },
     "tbody":{
       "kind":"apartment",
-      "detales":"3 places",
+      "details":"3 places",
       "price":"1150",
       "change":"1 ",
       "dealsnum":"1.500",
       "pricesrange":"pricesrange"
     }
 
+  },
+  "form":{
+    "title":"title",
+    "details":"Contact us if you have a suggestion or inquiry",
+    "send":"send",
+    "inputs":{
+      "reason":"The purpose of communication",
+      "choose_reason": "choose reason",
+      "firstname":"first name",
+      "lastname":"last name",
+      "mobile":"mobile",
+      "email":"email",
+      "details":"details "
+    }
   }
+
 
 }

@@ -192,7 +192,7 @@
                               <span>{{ $t("table.tbody.kind") }}</span>
                               <br />
                               <span class="gray-span">{{
-                                $t("table.tbody.detales")
+                                $t("table.tbody.details")
                               }}</span>
                             </p>
                           </section>
@@ -272,7 +272,7 @@
                               <span>{{ $t("table.tbody.kind") }}</span>
                               <br />
                               <span class="gray-span">{{
-                                $t("table.tbody.detales")
+                                $t("table.tbody.details")
                               }}</span>
                             </p>
                           </section>
