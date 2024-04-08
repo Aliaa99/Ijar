@@ -21,9 +21,10 @@
 }
 .p-fixed {
   position: fixed !important;
-  z-index: 9;
+  z-index: 2401;
 }
-a {
+a,
+button {
   text-transform: capitalize !important;
   letter-spacing: 0 !important;
 }
@@ -34,7 +35,7 @@ main {
   background-position: left top;
 }
 p {
-  @media (min-width: 1024px) {
+  @media (min-width: 1200px) {
     white-space: pre-line;
   }
 }
@@ -43,4 +44,26 @@ p {
 }
 .v-btn--variant-flat {
   box-shadow: 24px 24px 48px 0px #0000001a !important;
+}
+.v-field--variant-solo-filled {
+  background: #f4f4f4 !important;
+}
+input[type="date"] {
+  flex-direction: row-reverse !important;
+  height: 40px !important;
+}
+.gray-span {
+  color: $gray-span;
+}
+.v-dialog {
+  .v-card {
+    overflow: visible !important;
+    border-radius: 13px !important;
+  }
+  &--close {
+    position: absolute;
+    left: -18px;
+    top: -18px;
+    border: 2px solid;
+  }
 }

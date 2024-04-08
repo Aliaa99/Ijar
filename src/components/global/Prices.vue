@@ -17,13 +17,22 @@
         </v-col>
 
         <v-col md="6" sm="12" cols="12">
-          <Chart />
+          <HomeChart />
         </v-col>
       </v-row>
     </v-container>
   </section>
 </template>
 
-<script setup>
-import Chart from "@/components/global/Chart.vue";
+<script>
+import { defineComponent } from "vue";
+import HomeChart from "@/components/global/charts/Home.vue";
+
+export default defineComponent({
+  name: "PricesComponent",
+  components: { HomeChart },
+  setup() {
+    //
+  },
+});
 </script>

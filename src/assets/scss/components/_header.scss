@@ -1,71 +1,72 @@
-.v-toolbar{
+.v-toolbar {
   padding-top: 1.5rem;
+  &__content {
+    overflow: inherit !important;
+  }
 }
 .transparent {
-    background-color: transparent !important;
-    .v-list-item { 
-        color: $black !important;
-        font-weight: bold;
-        &--active{
-            background-color: transparent;
-            color: $primary-md !important;
-        }
-        &__overlay {
-            display: none !important;
-        }
+  background-color: transparent !important;
+  .v-list-item {
+    color: $black !important;
+    font-weight: bold;
+    &--active {
+      background-color: transparent;
+      color: $primary-md !important;
     }
+    &__overlay {
+      display: none !important;
+    }
+  }
 }
 .app-language {
-    border: 1px solid $primary-md;
-    height: 36px;
-    padding: 0 .25rem;
-    text-transform: capitalize;
-    border-radius: 4px;
+  border: 1px solid $primary-md;
+  height: 36px;
+  padding: 0 0.25rem;
+  text-transform: capitalize;
+  border-radius: 4px;
 }
 
 //navigation
-.mobile-style{
-    background-color: transparent;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    right: 0;
-    $breakpoint-tablet: 550px;
-    .v-btn{
-        @media (max-width: $breakpoint-tablet) {
-            margin: auto -40px;
-         }
-     
+.mobile-style {
+  background-color: transparent;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  $breakpoint-tablet: 550px;
+  .v-btn {
+    @media (max-width: $breakpoint-tablet) {
+      margin: auto -40px;
     }
-
+  }
 }
-.nav-dr{
-    .v-list-item { 
-        color: $black !important;
-        font-weight: bold;
-        &--active{
-            background-color: transparent;
-            color: $primary-md !important;
-        }
-        &__overlay {
-            display: none !important;
-        }
+.nav-dr {
+  .v-list-item {
+    color: $black !important;
+    font-weight: bold;
+    &--active {
+      background-color: transparent;
+      color: $primary-md !important;
     }
+    &__overlay {
+      display: none !important;
+    }
+  }
 }
-.changecolor{
-    background-color: white !important;
-    padding-top: 0rem;
+.changecolor {
+  background-color: white !important;
+  padding-top: 0rem;
 }
-.img-intro{
-    position: relative;
-    &::before{
-        content: '';
-        background-image: url("/src/assets/images/after-slider.png");
-        position: absolute;
-        bottom: -27px;
-        height: 143px;
-        width: 150px;
-        left: -5px;
-        z-index: 0;
-        }
+.img-intro {
+  position: relative;
+  &::before {
+    content: "";
+    background-image: url("/src/assets/images/after-slider.png");
+    position: absolute;
+    bottom: -27px;
+    height: 143px;
+    width: 150px;
+    left: -5px;
+    z-index: 0;
+  }
 }

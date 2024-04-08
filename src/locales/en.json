@@ -3,16 +3,16 @@
     "ar": "Arabic",
     "en": "English"
   },
-  "header":{
-    "home":"home ",
-    "pointer":"pointer",
-    "comparison":"Comparison",
-    "search":"search",
-    "reports":"Reports",
-    "inquiries":"Inquiries",
-    "login":"login "
+  "header": {
+    "home": "home ",
+    "pointer": "pointer",
+    "comparison": "Comparison",
+    "search": "search",
+    "reports": "Reports",
+    "inquiries": "Inquiries",
+    "login": "login "
   },
-  "home" : {
+  "home": {
     "numbers": {
       "title": "numbers",
       "body": "numbers body",
@@ -26,7 +26,6 @@
         "body": "commercial body",
         "average": "commercial 25%"
       },
-
       "buildings": {
         "title": "buildings",
         "body": "buildings body",
@@ -38,18 +37,68 @@
         "average": "deals 25%"
       }
     },
-    "deals":{
-      "title":"new deals",
-      "body":"loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream ",
-      "contact":"contact"
+    "deals": {
+      "title": "new deals",
+      "body": "loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream ",
+      "contact": "contact"
     },
-    "prices":{
-      "title":"new prices",
-      "body":"loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream ",
-      "more":"more"
+    "prices": {
+      "title": "new prices",
+      "body": "loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream loream ",
+      "more": "more"
+    }
+  },
+  "pointer": {
+    "tabs": {
+      "housing": "housing",
+      "commercial": "commercial"
+    },
+    "text": {
+      "paragraph": "loreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloreamloream "
+    }
+  },
+  "select": {
+    "region": {
+      "label": "region",
+      "placeholder": "region",
+      "cairo": "cairo"
+    },
+    "city":{
+      "label": "city",
+      "placeholder": "city",
+      "cairo": "cairo"
+    },
+    "district":{
+      "label": "district",
+      "placeholder": "district",
+      "cairo": "cairo"
     }
   },
   "footer": {
     "text": "All rights reserved for Ijar"
-  } 
+  },
+  "search": {
+    "search": "search"
+  },
+  "table":{
+    "title":"title",
+    "thead":{
+      "kind":"kind",
+      "price":"price",
+      "change":"change",
+      "dealsnum":"dealsnum",
+      "chart":"Chart",
+      "pricesrange":"pricesrange"
+    },
+    "tbody":{
+      "kind":"apartment",
+      "detales":"3 places",
+      "price":"1150",
+      "change":"1 ",
+      "dealsnum":"1.500",
+      "pricesrange":"pricesrange"
+    }
+
+  }
+
 }

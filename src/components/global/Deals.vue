@@ -13,7 +13,7 @@
         </v-col>
 
         <v-col lg="2" cols="12">
-          <section class="d-flex align-center justify-end h-100">
+          <section class="d-flex align-center justify-sm-end h-100">
             <v-btn color="primary" variant="flat" size="large" to="/">
               {{ $t("home.deals.contact") }}
             </v-btn>
