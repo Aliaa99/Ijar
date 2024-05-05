@@ -27,7 +27,7 @@
                 >
 
                 <v-card-title class="d-flex">
-                  <v-avatar size="54" >
+                  <v-avatar size="30" >
                     <v-img alt="icon" :src="n.src"></v-img>
                   </v-avatar>
                   <article>

@@ -17,7 +17,7 @@
             <v-btn color="primary" variant="flat" size="large" to="/pointer">
               {{ $t("home.prices.more") }}
             </v-btn>
-            <Chips />
+            <!-- <Chips /> -->
           </section>
         </v-col>
       </v-row>
@@ -28,11 +28,11 @@
 <script>
 import { defineComponent } from "vue";
 import HomeChart from "@/components/global/charts/Home.vue";
-import Chips from "@/components/Chips.vue";
+// import Chips from "@/components/Chips.vue";
 
 export default defineComponent({
   name: "PricesComponent",
-  components: { HomeChart, Chips },
+  components: { HomeChart,  },
   setup() {
     //
   },

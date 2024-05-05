@@ -1,3 +1,8 @@
 .slide-style{
-    background-color: transparent;
+    .v-sheet{
+        background-color: transparent;
+        .v-card-title{
+            background-color: $white;
+        }
+    }
 }

@@ -114,9 +114,43 @@
       color: $white;
     }
   }
+  .nested-table {
+    thead {
+      background-color: $primary-md !important;
+      color: white !important;
+    }
+  }
 }
 //pop up
 .v-table {
+  .v-data-table__tr {
+    position: relative;
+    td {
+      &:first-child {
+        padding-right: 2rem !important;
+      }
+    }
+  }
+  .v-data-table-column--no-padding {
+    button {
+      position: absolute;
+      right: 0;
+      bottom: 1rem;
+      background-color: $primary-md;
+      height: 1.5rem;
+      width: 1.5rem;
+      border-radius: 4px !important;
+      .v-icon {
+        color: white !important;
+      }
+      .mdi-chevron-down::before {
+        content: "\F0415" !important;
+      }
+      .mdi-chevron-up::before {
+        content: "\F0374" !important;
+      }
+    }
+  }
   .pop-up-head {
     background-color: $primary-md;
     color: $white;
@@ -152,5 +186,24 @@
     left: -18px;
     top: -18px;
     border: 2px solid !important;
+  }
+}
+// pop up button
+.buttonpop{
+  position: absolute !important;
+  right: -40px;
+  background-color: $tabs-slide !important;
+  color: $black !important;
+  border-radius: 20px !important;
+  padding: 5px 7px 5px 15px !important;
+  font-size: 14px;
+  min-height: 50px;
+  .v-img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+  .spannum{
+    color: $primary-md;
   }
 }

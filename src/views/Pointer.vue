@@ -145,15 +145,6 @@
 
         <v-card-text class="px-0">
           <v-divider class="mb-8"></v-divider>
-          <!-- <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d55299.64092390445!2d30.9133312!3d29.9728896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714756559100!5m2!1sen!2seg"
-            width="600"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe> -->
           <v-window v-model="tab">
             <v-window-item value="one">
               <v-row>
@@ -170,51 +161,90 @@
                     <template v-slot:expanded-row="{ columns, item }">
                       <tr>
                         <td :colspan="columns.length">
-                          More info about {{ item }}
+                          <!-- More info about {{ item }} -->
+                          <v-table class="ma-5 nested-table">
+                            <thead>
+                              <tr>
+                                <th class="text-center">
+                                  {{ $t("table.thead.kind") }}
+                                </th>
+                                <th class="text-center">
+                                  {{ $t("table.thead.price") }}
+                                </th>
+                                <th class="text-center">
+                                  {{ $t("table.thead.change") }}
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-center">
+                                  {{ $t("table.tbody.price") }}
+                                </td>
+                                <td class="text-center">
+                                  {{ $t("table.tbody.change") }}
+                                </td>
+                                <td class="text-center">
+                                  {{ $t("table.tbody.dealsnum") }}
+                                </td>
+                              </tr>
+                            </tbody>
+                          </v-table>
                         </td>
                       </tr>
-                    </template>
-                    <template v-slot:item.dataTableExpand="{ item }">
-                      <v-icon>mdi-plus</v-icon>
                     </template>
 
                     <template v-slot:item.actions="{ item }">
                       <v-btn
-                        @click="dialog = true"
+                        @click="showChart = true"
                         class="table-icon"
                         density="compact"
                         icon="mdi-chart-line-variant"
                       ></v-btn>
                       <v-btn
+                        @click="showChart = false"
                         class="table-icon"
                         density="compact"
                         icon="mdi-map-marker"
                       ></v-btn>
                     </template>
                   </v-data-table-virtual>
+
                   <!-- table -->
                 </v-col>
                 <v-col lg="6" md="5" sm="12" cols="12">
-                  <section class="d-flex justify-space-between pointer-chart">
-                    <p>شقة</p>
-                    <div>
-                      <span>
-                        <v-icon color="#5A55D2" size="x-small"
-                          >mdi-circle</v-icon
-                        >
-                        عدد الصفقات
-                      </span>
-                      <span class="ms-4">
-                        <v-icon color="#00DEA3" size="x-small"
-                          >mdi-circle</v-icon
-                        >
-                        متوسط الأسعار
-                      </span>
-                    </div>
-                  </section>
-                  <section style="max-height: 160px">
-                    <PointerChart />
-                  </section>
+                  <template v-if="showChart">
+                    <section class="d-flex justify-space-between pointer-chart">
+                      <p>شقة</p>
+                      <div>
+                        <span>
+                          <v-icon color="#5A55D2" size="x-small"
+                            >mdi-circle</v-icon
+                          >
+                          عدد الصفقات
+                        </span>
+                        <span class="ms-4">
+                          <v-icon color="#00DEA3" size="x-small"
+                            >mdi-circle</v-icon
+                          >
+                          متوسط الأسعار
+                        </span>
+                      </div>
+                    </section>
+                    <section style="max-height: 160px">
+                      <PointerChart />
+                    </section>
+                  </template>
+                  <iframe
+                    v-if="!showChart"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d55299.64092390445!2d30.9133312!3d29.9728896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714756559100!5m2!1sen!2seg"
+                    width="600"
+                    height="250"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </v-col>
               </v-row>
             </v-window-item>
@@ -258,7 +288,6 @@
                         </td>
                         <td class="text-center">
                           <v-btn
-                            @click="dialog = true"
                             class="table-icon"
                             density="compact"
                             icon="mdi-chart-line-variant"
@@ -300,6 +329,13 @@
             </v-window-item>
           </v-window>
         </v-card-text>
+
+        <v-btn @click="dialog = true" class="buttonpop">
+            <v-img src="@/assets/images/citizen.jpg"/>
+            {{ $t("home.button") }}
+          <span class="spannum">  {{ $t("home.button2") }} </span>
+        </v-btn>
+
       </v-card>
     </v-container>
   </section>
@@ -349,6 +385,8 @@
       ></v-btn>
     </v-card>
   </v-dialog>
+
+
 </template>
 
 <script>
@@ -363,11 +401,11 @@ export default defineComponent({
   setup() {
     const tab = ref(null);
     const dialog = ref(false);
+    const showChart = ref(false);
     const date = new Date().toISOString().substr(0, 10);
     const expanded = ref([]);
     const items = ref([
       {
-        // dataTableExpand: "",
         kind: "شقة",
         dealsnum: 35,
         price: 22,
@@ -394,7 +432,6 @@ export default defineComponent({
     });
     const headers = computed(() => {
       return [
-        // { text: "", value: "data-table-expand" },
         {
           title: t("table.thead.kind"),
           align: "start",
@@ -432,6 +469,7 @@ export default defineComponent({
       expanded,
       headers,
       items,
+      showChart,
     };
   },
 });
