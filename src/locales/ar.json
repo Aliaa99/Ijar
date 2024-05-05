@@ -83,7 +83,26 @@
       "label": "الحي",
       "placeholder": "اختر الحي",
       "alsalam": "السلام"
+    },
+    "district2":{
+      "title": "الحي الأول",
+      "label": "الحي الأول",
+      "placeholder": "اختر الحي",
+      "alsalam": "السلام"
+    },
+    "district3":{
+      "title": "الحي الثاني",
+      "label": "الحي الثاني",
+      "placeholder": "اختر الحي",
+      "alsalam": "السلام"
+    },
+    "district4":{
+      "title": "الحي الثالث",
+      "label": "الحي الثالث",
+      "placeholder": "اختر الحي",
+      "alsalam": "السلام"
     }
+
 
   },
   "footer": {
@@ -100,7 +119,8 @@
       "change":"معدل التغيير ",
       "dealsnum":"عدد الصفقات",
       "chart":"المخطط البياني",
-      "pricesrange":"نطاق الاسعار"
+      "pricesrange":"نطاق الاسعار",
+      "actions": "تحكم"
     },
     "tbody":{
       "kind":"شقة",

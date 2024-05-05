@@ -1,8 +1,8 @@
 <template>
   <introduction />
+  <Prices /> 
   <Numbers />
   <Deals />
-  <Prices /> 
 </template>
 
 <script setup>

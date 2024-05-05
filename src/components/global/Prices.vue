@@ -2,6 +2,10 @@
   <section class="my-12 py-12 prices-section">
     <v-container class="py-5">
       <v-row>
+        <v-col md="6" sm="12" cols="12">
+          <HomeChart />
+        </v-col>
+
         <v-col md="6" sm="12" cols="12" class="d-flex align-center">
           <section>
             <article>
@@ -13,11 +17,8 @@
             <v-btn color="primary" variant="flat" size="large" to="/pointer">
               {{ $t("home.prices.more") }}
             </v-btn>
+            <Chips />
           </section>
-        </v-col>
-
-        <v-col md="6" sm="12" cols="12">
-          <HomeChart />
         </v-col>
       </v-row>
     </v-container>
@@ -27,10 +28,11 @@
 <script>
 import { defineComponent } from "vue";
 import HomeChart from "@/components/global/charts/Home.vue";
+import Chips from "@/components/Chips.vue";
 
 export default defineComponent({
   name: "PricesComponent",
-  components: { HomeChart },
+  components: { HomeChart, Chips },
   setup() {
     //
   },

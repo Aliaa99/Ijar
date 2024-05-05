@@ -26,7 +26,7 @@
                 <span>{{ item.num }}</span>
               </article>
               <v-spacer />
-              <v-avatar size="54" class="pa-3">
+              <v-avatar size="54" >
                 <v-img alt="icon" :src="item.icon"></v-img>
               </v-avatar>
             </v-card-title>
@@ -71,7 +71,7 @@ export default defineComponent({
           num: "1.555",
           body: t("home.numbers.buildings.body"),
           average: t("home.numbers.buildings.average"),
-          icon: "src/assets/images/numbers/01.png",
+          icon: "src/assets/images/numbers/03.png",
           class: "buildings",
         },
         {
@@ -79,7 +79,7 @@ export default defineComponent({
           num: "1.112",
           body: t("home.numbers.deals.body"),
           average: t("home.numbers.deals.average"),
-          icon: "src/assets/images/numbers/03.png",
+          icon: "src/assets/images/numbers/04.png",
           class: "deals",
         },
       ];
