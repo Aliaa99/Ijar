@@ -10,8 +10,8 @@
         <v-list class="py-0" lines="two">
           <v-list-item :title="$t('pointer.title')">
             <template v-slot:prepend>
-              <v-avatar size="54" class="pa-3" color="#F9A23B">
-                <v-img src="../../src/assets/images/numbers/03.png" />
+              <v-avatar size="54" class="pa-0" color="#F9A23B">
+                <v-img src="../../src/assets/images/Icon.png" />
               </v-avatar>
             </template>
           </v-list-item>
@@ -178,78 +178,101 @@
               <v-row>
                 <v-col lg="6" md="7" sm="12" cols="12">
                   <!-- table -->
-                  <v-table>
-                    <thead>
+                  <v-data-table-virtual
+                    v-model:expanded="expanded"
+                    :headers="headers"
+                    :items="items"
+                    item-value="name"
+                    show-expand
+                    hide-pagination
+                  >
+                    <template v-slot:expanded-row="{ columns, item }">
                       <tr>
-                        <th>{{ $t("table.thead.kind") }}</th>
-                        <th>{{ $t("table.thead.price") }}</th>
-                        <th>{{ $t("table.thead.change") }}</th>
-                        <th>{{ $t("table.thead.dealsnum") }}</th>
-                        <th>{{ $t("table.thead.chart") }}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr v-for="item in 3" :key="item">
-                        <td>
-                          <section class="d-flex">
-                            <v-icon class="flat">mdi-arrow-top-right</v-icon>
-                            <p>
-                              <span>{{ $t("table.tbody.kind") }}</span>
-                              <br />
-                              <span class="gray-span">{{
-                                $t("table.tbody.details")
-                              }}</span>
-                            </p>
-                          </section>
-                        </td>
-                        <td class="text-center">
-                          {{ $t("table.tbody.price") }}
-                        </td>
-                        <td class="text-center">
-                          {{ $t("table.tbody.change") }}
-                        </td>
-                        <td class="text-center">
-                          {{ $t("table.tbody.dealsnum") }}
-                        </td>
-                        <td class="text-center">
-                          <v-btn
-                            @click="dialog = true"
-                            class="table-icon"
-                            density="compact"
-                            icon="mdi-chart-line-variant"
-                          ></v-btn>
-                          <v-btn
-                            class="table-icon"
-                            density="compact"
-                            icon="mdi-map-marker"
-                          ></v-btn>
+                        <td :colspan="columns.length">
+                          <!-- More info about {{ item }} -->
+                          <v-table class="ma-5 nested-table">
+                            <thead>
+                              <tr>
+                                <th class="text-center">
+                                  {{ $t("table.thead.kind") }}
+                                </th>
+                                <th class="text-center">
+                                  {{ $t("table.thead.price") }}
+                                </th>
+                                <th class="text-center">
+                                  {{ $t("table.thead.change") }}
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-center">
+                                  {{ $t("table.tbody.price") }}
+                                </td>
+                                <td class="text-center">
+                                  {{ $t("table.tbody.change") }}
+                                </td>
+                                <td class="text-center">
+                                  {{ $t("table.tbody.dealsnum") }}
+                                </td>
+                              </tr>
+                            </tbody>
+                          </v-table>
                         </td>
                       </tr>
-                    </tbody>
-                  </v-table>
+                    </template>
+
+                    <template v-slot:item.actions="{ item }">
+                      <v-btn
+                        @click="showChart = true"
+                        class="table-icon"
+                        density="compact"
+                        icon="mdi-arrow-top-right"
+                      ></v-btn>
+                      <v-btn
+                        @click="showChart = false"
+                        class="table-icon"
+                        density="compact"
+                        icon="mdi-map-marker"
+                      ></v-btn>
+                    </template>
+                  </v-data-table-virtual>
+
                   <!-- table -->
                 </v-col>
                 <v-col lg="6" md="5" sm="12" cols="12">
-                  <section class="d-flex justify-space-between pointer-chart">
-                    <p>شقة</p>
-                    <div>
-                      <span>
-                        <v-icon color="#5A55D2" size="x-small"
-                          >mdi-circle</v-icon
-                        >
-                        عدد الصفقات
-                      </span>
-                      <span class="ms-4">
-                        <v-icon color="#00DEA3" size="x-small"
-                          >mdi-circle</v-icon
-                        >
-                        متوسط الأسعار
-                      </span>
-                    </div>
-                  </section>
-                  <section style="max-height: 160px">
-                    <PointerChart />
-                  </section>
+                  <template v-if="showChart">
+                    <section class="d-flex justify-space-between pointer-chart">
+                      <p>شقة</p>
+                      <div>
+                        <span>
+                          <v-icon color="#5A55D2" size="x-small"
+                            >mdi-circle</v-icon
+                          >
+                          عدد الصفقات
+                        </span>
+                        <span class="ms-4">
+                          <v-icon color="#00DEA3" size="x-small"
+                            >mdi-circle</v-icon
+                          >
+                          متوسط الأسعار
+                        </span>
+                      </div>
+                    </section>
+                    <section style="max-height: 160px">
+                      <PointerChart />
+                    </section>
+                  </template>
+                  <iframe
+                    v-if="!showChart"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d55299.64092390445!2d30.9133312!3d29.9728896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714756559100!5m2!1sen!2seg"
+                    width="600"
+                    height="250"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </v-col>
               </v-row>
             </v-window-item>
@@ -258,83 +281,114 @@
               <v-row>
                 <v-col lg="6" md="7" sm="12" cols="12">
                   <!-- table -->
-                  <v-table>
-                    <thead>
+                  <v-data-table-virtual
+                    v-model:expanded="expanded"
+                    :headers="headers"
+                    :items="items"
+                    item-value="name"
+                    show-expand
+                    hide-pagination
+                  >
+                    <template v-slot:expanded-row="{ columns, item }">
                       <tr>
-                        <th>{{ $t("table.thead.kind") }}</th>
-                        <th>{{ $t("table.thead.price") }}</th>
-                        <th>{{ $t("table.thead.change") }}</th>
-                        <th>{{ $t("table.thead.dealsnum") }}</th>
-                        <th>{{ $t("table.thead.chart") }}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr v-for="item in 3" :key="item">
-                        <td>
-                          <section class="d-flex">
-                            <v-icon class="flat">mdi-arrow-top-right</v-icon>
-                            <p>
-                              <span>{{ $t("table.tbody.kind") }}</span>
-                              <br />
-                              <span class="gray-span">{{
-                                $t("table.tbody.details")
-                              }}</span>
-                            </p>
-                          </section>
-                        </td>
-                        <td class="text-center">
-                          {{ $t("table.tbody.price") }}
-                        </td>
-                        <td class="text-center">
-                          {{ $t("table.tbody.change") }}
-                        </td>
-                        <td class="text-center">
-                          {{ $t("table.tbody.dealsnum") }}
-                        </td>
-                        <td class="text-center">
-                          <v-btn
-                            @click="dialog = true"
-                            class="table-icon"
-                            density="compact"
-                            icon="mdi-chart-line-variant"
-                          ></v-btn>
-                          <v-btn
-                            class="table-icon"
-                            density="compact"
-                            icon="mdi-map-marker"
-                          ></v-btn>
+                        <td :colspan="columns.length">
+                          <!-- More info about {{ item }} -->
+                          <v-table class="ma-5 nested-table">
+                            <thead>
+                              <tr>
+                                <th class="text-center">
+                                  {{ $t("table.thead.kind") }}
+                                </th>
+                                <th class="text-center">
+                                  {{ $t("table.thead.price") }}
+                                </th>
+                                <th class="text-center">
+                                  {{ $t("table.thead.change") }}
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-center">
+                                  {{ $t("table.tbody.price") }}
+                                </td>
+                                <td class="text-center">
+                                  {{ $t("table.tbody.change") }}
+                                </td>
+                                <td class="text-center">
+                                  {{ $t("table.tbody.dealsnum") }}
+                                </td>
+                              </tr>
+                            </tbody>
+                          </v-table>
                         </td>
                       </tr>
-                    </tbody>
-                  </v-table>
+                    </template>
+
+                    <template v-slot:item.actions="{ item }">
+                      <v-btn
+                        @click="showChart = true"
+                        class="table-icon"
+                        density="compact"
+                        icon="mdi-arrow-top-right"
+                      ></v-btn>
+                      <v-btn
+                        @click="showChart = false"
+                        class="table-icon"
+                        density="compact"
+                        icon="mdi-map-marker"
+                      ></v-btn>
+                    </template>
+                  </v-data-table-virtual>
+
                   <!-- table -->
                 </v-col>
                 <v-col lg="6" md="5" sm="12" cols="12">
-                  <section class="d-flex justify-space-between pointer-chart">
-                    <p>شقة</p>
-                    <div>
-                      <span>
-                        <v-icon color="#5A55D2" size="x-small"
-                          >mdi-circle</v-icon
-                        >
-                        عدد الصفقات
-                      </span>
-                      <span class="ms-4">
-                        <v-icon color="#00DEA3" size="x-small"
-                          >mdi-circle</v-icon
-                        >
-                        متوسط الأسعار
-                      </span>
-                    </div>
-                  </section>
-                  <section style="max-height: 160px">
-                    <PointerChart />
-                  </section>
+                  <template v-if="showChart">
+                    <section class="d-flex justify-space-between pointer-chart">
+                      <p>شقة</p>
+                      <div>
+                        <span>
+                          <v-icon color="#5A55D2" size="x-small"
+                            >mdi-circle</v-icon
+                          >
+                          عدد الصفقات
+                        </span>
+                        <span class="ms-4">
+                          <v-icon color="#00DEA3" size="x-small"
+                            >mdi-circle</v-icon
+                          >
+                          متوسط الأسعار
+                        </span>
+                      </div>
+                    </section>
+                    <section style="max-height: 160px">
+                      <PointerChart />
+                    </section>
+                  </template>
+                  <iframe
+                    v-if="!showChart"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d55299.64092390445!2d30.9133312!3d29.9728896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714756559100!5m2!1sen!2seg"
+                    width="600"
+                    height="250"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </v-col>
               </v-row>
             </v-window-item>
+
           </v-window>
         </v-card-text>
+
+        <v-btn @click="dialog = true" class="buttonpop">
+            <v-img src="@/assets/images/citizen.jpg"/>
+            {{ $t("home.button") }}
+          <span class="spannum">  {{ $t("home.button2") }} </span>
+        </v-btn>
+
       </v-card>
     </v-container>
   </section>
@@ -346,6 +400,7 @@
         <h6 class="mb-3">{{ $t("table.title") }}</h6>
       </template>
       <!-- table -->
+
       <v-table class="px-6">
         <thead class="pop-up-head">
           <tr>
@@ -383,6 +438,8 @@
       ></v-btn>
     </v-card>
   </v-dialog>
+
+
 </template>
 
 <script>
@@ -397,7 +454,18 @@ export default defineComponent({
   setup() {
     const tab = ref(null);
     const dialog = ref(false);
+    const showChart = ref(false);
     const date = new Date().toISOString().substr(0, 10);
+    const expanded = ref([]);
+    const items = ref([
+      {
+        kind: "شقة",
+        dealsnum: 35,
+        price: 22,
+        actions: "",
+      },
+    ]);
+
     const payload = ref({
       region: null,
       city: null,
@@ -415,8 +483,47 @@ export default defineComponent({
     const districts = computed(() => {
       return [{ title: t("select.district.alsalam"), value: "alsalam" }];
     });
-
-    return { tab, dialog, date, regions, cities, districts, payload };
+    const headers = computed(() => {
+      return [
+        {
+          title: t("table.thead.kind"),
+          align: "start",
+          sortable: false,
+          key: "kind",
+        },
+        {
+          title: t("table.thead.dealsnum"),
+          sortable: false,
+          align: "center",
+          key: "dealsnum",
+        },
+        {
+          title: t("table.thead.price"),
+          sortable: false,
+          align: "center",
+          key: "price",
+        },
+        {
+          title: t("table.thead.actions"),
+          sortable: false,
+          align: "center",
+          key: "actions",
+        },
+      ];
+    });
+    return {
+      tab,
+      dialog,
+      date,
+      regions,
+      cities,
+      districts,
+      payload,
+      expanded,
+      headers,
+      items,
+      showChart,
+    };
   },
 });
 </script>

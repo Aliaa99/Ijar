@@ -4,6 +4,16 @@
     overflow: inherit !important;
   }
 }
+.logotitle{
+    color: $primary-md;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px -15px;
+}
+.v-list-item--density-default:not(.v-list-item--nav).v-list-item--one-line{
+  padding-inline:5px !important;
+}
 .transparent {
   background-color: transparent !important;
   .v-list-item {
@@ -34,6 +44,9 @@
   left: 0;
   right: 0;
   $breakpoint-tablet: 550px;
+  img{
+    margin: -10px;
+  }
   .v-btn {
     @media (max-width: $breakpoint-tablet) {
       margin: auto -40px;

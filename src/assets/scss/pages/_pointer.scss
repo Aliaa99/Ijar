@@ -1,6 +1,6 @@
 .pointer {
   &-section {
-    background-image: url(src/assets/images/pointer.jpg) !important;
+    background-image: url(src/assets/images/pointer.png) !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     border-radius: 20px !important;
@@ -11,7 +11,7 @@
       &-item-title {
         white-space: break-spaces !important;
         @media (min-width: 767px) {
-          font-size: 20px;
+          font-size: 18px;
           line-height: 32px;
         }
       }
@@ -198,6 +198,9 @@
   padding: 5px 7px 5px 15px !important;
   font-size: 14px;
   min-height: 50px;
+  @media (max-width: 959px) {
+    right: 0px;
+  }
   .v-img{
     width: 35px;
     height: 35px;

@@ -1,8 +1,18 @@
 .slide-style{
-    .v-sheet{
-        background-color: transparent;
+        background-color: transparent !important;
         .v-card-title{
-            background-color: $white;
-        }
+            background-color: $white !important;
+            padding: 0px;
+            .v-avatar{
+                margin-top: 10px;
+            }
+            p{
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+    }
+    v-article{
+        padding: 10px;
     }
 }

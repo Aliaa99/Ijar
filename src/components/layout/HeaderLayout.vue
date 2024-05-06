@@ -9,19 +9,26 @@
       <v-container>
         <!-- {{ active }} -->
         <v-row>
-          <v-col cols="1">
+          <v-col cols="3" lg="3" md="3">
             <v-toolbar-title class="mt-2">
-              <router-link to="/">
-                <v-img src="../../assets/images/logo.png" />
-              </router-link>
+              <v-row>
+                <v-col cols="5">
+                  <router-link to="/">
+                    <v-img src="../../assets/images/logo.png" />
+                  </router-link>    
+                </v-col>
+                <v-col cols="7">
+                  <span class="logotitle">المؤشر الايجاري</span>
+                </v-col>
+              </v-row>
             </v-toolbar-title>
           </v-col>
 
           <v-col
             lg="9"
-            md="8"
-            cols="8"
-            class="d-flex justify-center"
+            md="9"
+            cols="9"
+            class="d-flex "
             align-self="center"
           >
             <v-toolbar-items>
@@ -36,12 +43,12 @@
               </v-list>
             </v-toolbar-items>
           </v-col>
-          <v-col lg="2" cols="3" class="d-flex align-center justify-end">
+          <!-- <v-col lg="2" cols="3" class="d-flex align-center justify-end">
             <v-btn color="primary" variant="flat" to="/login">
               {{ $t("header.login") }}
-            </v-btn>
-            <slot />
-          </v-col>
+            </v-btn> -->
+            <!-- <slot /> -->
+          <!-- </v-col> -->
         </v-row>
       </v-container>
     </v-toolbar>
@@ -68,13 +75,18 @@
       <v-main style="height: auto">
         <div class="mobile-style pt-5" id="header2">
           <v-row justify="space-between">
-            <v-col cols="2">
+            <v-col cols="10">
               <img
                 src="../../assets/images/logo.png"
                 class="pr-5"
                 style="width: 100px"
               />
+              <span class="logotitle mx-5">المؤشر الايجاري</span>
             </v-col>
+
+            <!-- <v-col cols="2">
+              <span class="logotitle">المؤشر الايجاري</span>
+            </v-col> -->
 
             <v-col cols="2">
               <v-btn color="primary" @click.stop="drawer = !drawer">
@@ -117,12 +129,16 @@ export default defineComponent({
           go: "/search",
         },
         {
+          title: t("header.inquiries"),
+          go: t("/inquiries"),
+        },
+        {
           title: t("header.reports"),
           go: t("/reports"),
         },
         {
-          title: t("header.inquiries"),
-          go: t("/inquiries"),
+          title: t("header.services"),
+          go: t("/reports"),
         },
       ];
     });

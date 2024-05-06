@@ -1,20 +1,22 @@
 <template>
-  <section class="my-12 py-6 deals_section">
+  <section class="mt-12 py-6 deals_section">
     <v-container class="py-5">
       <v-row>
-        <v-col lg="3" md="3" sm="3" xs="2" cols="12">
+        <v-col lg="4" md="3" sm="3" xs="2" cols="12">
           <img width="100%" src="../../assets/images/user.png" />
         </v-col>
-        <v-col lg="9" md="9" sm="6" xs="10" cols="12">
-          <article>
-            <h2 class="text-36">{{ $t("home.deals.title") }}</h2>
-            <p class="pt-2 text-18">{{ $t("home.deals.body") }}</p>
+        <v-col lg="8" md="9" sm="6" xs="10" cols="12">
+          <article class=" px-4">
+            <h2 class="text-36" style="color:#00ab84">{{ $t("home.deals.title") }}</h2>
+            <p class="pt-2 text-18">{{ $t("home.deals.body") }} <span style="color:#00ab84">{{ $t("home.deals.body2") }}</span> <span>{{ $t("home.deals.body3") }}</span> <span style="color:#00ab84">{{ $t("home.deals.body4") }}</span></p>
           </article>
 
           <v-sheet  class="slide-style">
             <v-slide-group
               v-model="model"
-              class="pa-4"
+              class="py-4"
+              show-arrows
+
             >
               <v-slide-group-item
                 v-for="n in slides"
@@ -30,10 +32,9 @@
                   <v-avatar size="30" >
                     <v-img alt="icon" :src="n.src"></v-img>
                   </v-avatar>
-                  <article>
-                    <span class="text-primary-md">{{n.title}}</span>
-                    <br />
-                    <span>{{n.text}}</span>
+                  <article class="pa-3">
+                    <h2 class="text-primary-md">{{n.title}}</h2>
+                    <p>{{n.text}} <br /> <span>{{n.text2}} </span> <span style="color:#00ab84">{{n.text3}}</span> </p>
                   </article>
                   <v-spacer />
                 </v-card-title>
@@ -73,10 +74,10 @@ export default defineComponent({
   setup() {
     const model = ref(null);
     const slides = ref([
-      { src: "src/assets/images/stats-1.png" ,title:'15.55' ,text:'ppppppppp'},
-      { src: "src/assets/images/stats-2.png" ,title:'15.55' ,text:'ppppppppp'},
-      { src: "src/assets/images/stats-3.png" ,title:'15.55' ,text:'ppppppppp'},
-      { src: "src/assets/images/stats-4.png" ,title:'15.55' ,text:'ppppppppp'},
+      { src: "src/assets/images/stats-1.png" ,title:'77.589' ,text:'صفقات تجارية ',text2:' لعام ',text3:'2024'},
+      { src: "src/assets/images/stats-2.png" ,title:'105.258' ,text:'صفقات سكنية  ',text2:' لعام' ,text3:'2024'},
+      { src: "src/assets/images/stats-3.png" ,title:'319.451' ,text:'صفقات تجارية ',text2:'لشهر',text3:'مايو'},
+      { src: "src/assets/images/stats-4.png" ,title:'84.268' ,text:'صفقات سكنية ',text2:'لشهر ',text3:'مايو'},
 
 
     ]);

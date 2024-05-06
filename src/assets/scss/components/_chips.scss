@@ -1,7 +1,14 @@
-.chips-style{
-    background-color: $chip;
-    .v-chip{
-        background-color: $primary-md;
-        color: $black;
-    }
+.chips-style {
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  .v-chip {
+    background-color: #b1ebdc;
+    color: $black;
+    font-size: 11px !important;
+    border-radius: 14px;
+    padding: 5px;
+  }
+  .chip-selected {
+    background-color: $primary-md !important;
+  }
 }
