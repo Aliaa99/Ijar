@@ -11,57 +11,51 @@
             <p class="pt-2 text-18">{{ $t("home.deals.body") }} <span style="color:#00ab84">{{ $t("home.deals.body2") }}</span> <span>{{ $t("home.deals.body3") }}</span> <span style="color:#00ab84">{{ $t("home.deals.body4") }}</span></p>
           </article>
 
-          <v-sheet  class="slide-style">
-            <v-slide-group
-              v-model="model"
-              class="py-4"
-              show-arrows
-
+          
+          <v-carousel
+          height="auto"
+          show-arrows="hover"
+          
+          hide-delimiter-background
+          class="px-4 py-4"
+        >
+          <v-carousel-item
+            v-for="(slide, i) in slides"
+            :key="i"
+          >
+            <v-sheet
+              height="100%"
             >
-              <v-slide-group-item
-                v-for="n in slides"
-                :key="n"
-              >
-                <v-card
-                  :class="['ma-4', selectedClass]"
-                  color="grey-lighten-1"
-                  @click="toggle"
-                >
-
-                <v-card-title class="d-flex">
-                  <v-avatar size="30" >
-                    <v-img alt="icon" :src="n.src"></v-img>
-                  </v-avatar>
-                  <article class="pa-3">
-                    <h2 class="text-primary-md">{{n.title}}</h2>
-                    <p>{{n.text}} <br /> <span>{{n.text2}} </span> <span style="color:#00ab84">{{n.text3}}</span> </p>
-                  </article>
-                  <v-spacer />
-                </v-card-title>
+              <div class="d-flex fill-height justify-center align-center">
+                <div class="text-h2">
+                  <v-row>
+                    <v-col cols="12" lg="3" md="6" sm="6" xs="12" v-for="(item, i) in slide" :key="i">
+                      <v-card>
     
-                  <!-- <div class="d-flex fill-height align-center justify-center">
-                    <v-scale-transition>
-                      <v-icon
-                        v-if="isSelected"
-                        color="white"
-                        icon="mdi-close-circle-outline"
-                        size="48"
-                      ></v-icon>
-                    </v-scale-transition>
-                  </div> -->
-                </v-card>
-              </v-slide-group-item>
-            </v-slide-group>
-          </v-sheet>
+                    <v-card-title class="d-flex">
+                      <v-avatar size="30" >
+                        <v-img alt="icon" :src="item.src"></v-img>
+                      </v-avatar>
+                      <article class="pa-3">
+                        <h2 class="text-primary-md">{{item.title}}</h2>
+                        <p>{{item.text}} <br /> <span>{{item.text2}} </span> <span style="color:#00ab84">{{item.text3}}</span> </p>
+                      </article>
+                      <v-spacer />
+                    </v-card-title>
+        
+                    </v-card>
+    
+                    </v-col>
+                  </v-row>
+
+                </div>
+              </div>
+            </v-sheet>
+          </v-carousel-item>
+        </v-carousel>
+      
         </v-col>
 
-        <!-- <v-col lg="2" cols="12">
-          <section class="d-flex align-center justify-sm-end h-100">
-            <v-btn color="primary" variant="flat" size="large" to="/">
-              {{ $t("home.deals.contact") }}
-            </v-btn>
-          </section>
-        </v-col> -->
       </v-row>
     </v-container>
   </section>
@@ -74,13 +68,20 @@ export default defineComponent({
   setup() {
     const model = ref(null);
     const slides = ref([
+      [
       { src: "src/assets/images/stats-1.png" ,title:'77.589' ,text:'صفقات تجارية ',text2:' لعام ',text3:'2024'},
       { src: "src/assets/images/stats-2.png" ,title:'105.258' ,text:'صفقات سكنية  ',text2:' لعام' ,text3:'2024'},
       { src: "src/assets/images/stats-3.png" ,title:'319.451' ,text:'صفقات تجارية ',text2:'لشهر',text3:'مايو'},
       { src: "src/assets/images/stats-4.png" ,title:'84.268' ,text:'صفقات سكنية ',text2:'لشهر ',text3:'مايو'},
+    ],
+    [
+      { src: "src/assets/images/stats-1.png" ,title:'77.589' ,text:'صفقات تجارية ',text2:' لعام ',text3:'2024'},
+      { src: "src/assets/images/stats-2.png" ,title:'105.258' ,text:'صفقات سكنية  ',text2:' لعام' ,text3:'2024'},
+      { src: "src/assets/images/stats-3.png" ,title:'319.451' ,text:'صفقات تجارية ',text2:'لشهر',text3:'مايو'},
+      { src: "src/assets/images/stats-4.png" ,title:'84.268' ,text:'صفقات سكنية ',text2:'لشهر ',text3:'مايو'},
+    ],
 
-
-    ]);
+  ]);
     return { model, slides };
   },
 });
