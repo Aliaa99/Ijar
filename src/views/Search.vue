@@ -61,11 +61,11 @@
                   style="height: 80px"
                 ></v-divider>
                 <v-col lg="2" md="3" sm="6" cols="12">
-                  <v-label>{{ $t("select.district2.label") }}</v-label>
+                  <v-label>{{ $t("search.kind") }}</v-label>
                   <v-select
                     :items="districts"
                     v-model="payload.district"
-                    :placeholder="$t('select.district2.placeholder')"
+                    :placeholder="$t('search.kind')"
                     variant="solo-filled"
                     item-title="title"
                     item-value="value"
@@ -82,20 +82,14 @@
                   style="height: 80px"
                 ></v-divider>
                 <v-col lg="2" md="3" sm="6" cols="12">
-                  <v-label>{{ $t("select.district3.label") }}</v-label>
-                  <v-select
-                    :items="districts"
-                    v-model="payload.district"
-                    :placeholder="$t('select.district3.placeholder')"
+                  <v-label>{{ $t("search.price-from") }}</v-label>
+                  <v-text-field
+                    v-model="payload.firstname"
                     variant="solo-filled"
-                    item-title="title"
-                    item-value="value"
-                    density="compact"
-                    menu-icon="mdi-chevron-down"
-                    clear-icon="mdi-close"
                     flat
+                    density="compact"
                     clearable
-                  ></v-select>
+                  ></v-text-field>
                 </v-col>
                 <v-divider
                   vertical
@@ -103,20 +97,14 @@
                   style="height: 80px"
                 ></v-divider>
                 <v-col lg="2" md="6" sm="6" cols="12">
-                  <v-label>{{ $t("select.district4.label") }}</v-label>
-                  <v-select
-                    :items="districts"
-                    v-model="payload.district"
-                    :placeholder="$t('select.district4.placeholder')"
+                  <v-label>{{ $t("search.price-to") }}</v-label>
+                  <v-text-field
+                    v-model="payload.firstname"
                     variant="solo-filled"
-                    item-title="title"
-                    item-value="value"
-                    density="compact"
-                    menu-icon="mdi-chevron-down"
-                    clear-icon="mdi-close"
                     flat
+                    density="compact"
                     clearable
-                  ></v-select>
+                  ></v-text-field>
                 </v-col>
                 <v-divider
                   vertical
@@ -124,20 +112,15 @@
                   style="height: 80px"
                 ></v-divider>
                 <v-col lg="2" md="6" sm="6" cols="12">
-                  <v-label>{{ $t("select.district4.label") }}</v-label>
-                  <v-select
-                    :items="districts"
-                    v-model="payload.district"
-                    :placeholder="$t('select.district4.placeholder')"
-                    variant="solo-filled"
-                    item-title="title"
-                    item-value="value"
-                    density="compact"
-                    menu-icon="mdi-chevron-down"
-                    clear-icon="mdi-close"
-                    flat
-                    clearable
-                  ></v-select>
+                  <v-btn
+                  color="primary"
+                  variant="flat"
+                  class="mt-6"
+                >
+                <v-icon class="mx-2">mdi-magnify</v-icon>
+                  {{ $t("search.search") }}
+                </v-btn>
+
                 </v-col>
           </v-row>
         </v-card>
