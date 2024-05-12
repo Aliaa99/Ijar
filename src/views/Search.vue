@@ -437,7 +437,7 @@ export default defineComponent({
       return [{ title: t("select.city.kharj"), value: "kharj" }];
     });
     const districts = computed(() => {
-      return [{ title: t("select.district.alsalam"), value: "alsalam" }];
+      return [{ title: t("search.apartment"), value: "apartment" }];
     });
     const headers = computed(() => {
       return [

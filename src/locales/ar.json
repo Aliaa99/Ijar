@@ -87,7 +87,8 @@
       "title": "حى",
       "label": "الحي",
       "placeholder": "اختر الحي",
-      "alsalam": "السلام"
+      "alsalam": "السلام",
+      "apartment":"شقة"
     },
     "district2":{
       "title": "الحي الأول",
@@ -155,6 +156,7 @@
     "price-from":"السعر من",
     "price-to":"السعر إلى",
     "search":"البحث",
+    "apartment":"شقة",
     "tabs":{
       "apartment":"شقة",
       "floor":"دور",
