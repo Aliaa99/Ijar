@@ -128,8 +128,9 @@
       <v-card class="filter-tabs pa-4">
         <v-tabs v-model="tab" color="primary">
           <section class="filter-tabs-btns">
-            <v-tab value="one">{{ $t("pointer.tabs.housing") }}</v-tab>
-            <v-tab value="two">{{ $t("pointer.tabs.commercial") }}</v-tab>
+            <v-tab value="one">{{ $t("search.tabs.apartment") }}</v-tab>
+            <v-tab value="two">{{ $t("search.tabs.floor") }}</v-tab>
+            <v-tab value="three">{{ $t("search.tabs.villa") }}</v-tab>
           </section>
           <section class="d-flex align-center">
             <v-chip
@@ -162,8 +163,6 @@
               v-if="payload.district != null"
             >
               {{
-                $t("select.district.title") +
-                " " +
                 $t(`select.district.${payload.district}`)
               }}
             </v-chip>
@@ -177,91 +176,43 @@
               <v-row>
                 <v-col lg="6" md="7" sm="12" cols="12">
                   <!-- table -->
-                  <v-data-table-virtual
-                    v-model:expanded="expanded"
-                    :headers="headers"
-                    :items="items"
-                    item-value="name"
-                    show-expand
-                    hide-pagination
-                  >
-                    <template v-slot:expanded-row="{ columns, item }">
+                  <v-table >
+                    <thead>
                       <tr>
-                        <td :colspan="columns.length">
-                          <!-- More info about {{ item }} -->
-                          <v-table class="ma-5 nested-table">
-                            <thead>
-                              <tr>
-                                <th class="text-center">
-                                  {{ $t("table.thead.kind") }}
-                                </th>
-                                <th class="text-center">
-                                  {{ $t("table.thead.price") }}
-                                </th>
-                                <th class="text-center">
-                                  {{ $t("table.thead.change") }}
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td class="text-center">
-                                  {{ $t("table.tbody.price") }}
-                                </td>
-                                <td class="text-center">
-                                  {{ $t("table.tbody.change") }}
-                                </td>
-                                <td class="text-center">
-                                  {{ $t("table.tbody.dealsnum") }}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </v-table>
-                        </td>
+                        <th class="text-center ">
+                          {{ $t("search.table.district") }}
+                        </th>
+                        <th class="text-center ">
+                          {{ $t("table.thead.price") }}
+                        </th>
+                        <th class="text-center ">
+                          {{ $t("search.table.location") }}
+                        </th>
                       </tr>
-                    </template>
-
-                    <template v-slot:item.actions="{ item }">
-                      <v-btn
-                        @click="showChart = true"
-                        class="table-icon"
-                        density="compact"
-                        icon="mdi-arrow-top-right"
-                      ></v-btn>
-                      <v-btn
-                        @click="showChart = false"
-                        class="table-icon"
-                        density="compact"
-                        icon="mdi-map-marker"
-                      ></v-btn>
-                    </template>
-                  </v-data-table-virtual>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">
+                          {{ $t("search.table.district") }}
+                        </td>
+                        <td class="text-center">
+                          {{ $t("table.tbody.change") }}
+                        </td>
+                        <td class="text-center">
+                          <v-btn
+                          @click="showChart = false"
+                          class="table-icon"
+                          density="compact"
+                          icon="mdi-map-marker"
+                        ></v-btn>
+                          </td>
+                      </tr>
+                    </tbody>
+                  </v-table>
 
                   <!-- table -->
                 </v-col>
                 <v-col lg="6" md="5" sm="12" cols="12">
-                  <template v-if="showChart">
-                    <section class="d-flex justify-space-between pointer-chart">
-                      <p>شقة</p>
-                      <div>
-                        <span>
-                          <v-icon color="#5A55D2" size="x-small"
-                            >mdi-circle</v-icon
-                          >
-                          عدد الصفقات
-                        </span>
-                        <span class="ms-4">
-                          <v-icon color="#00DEA3" size="x-small"
-                            >mdi-circle</v-icon
-                          >
-                          متوسط الأسعار
-                        </span>
-                      </div>
-                    </section>
-                    <section style="max-height: 160px">
-                      <PointerChart />
-                    </section>
-                  </template>
                   <iframe
                     v-if="!showChart"
                     src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d55299.64092390445!2d30.9133312!3d29.9728896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714756559100!5m2!1sen!2seg"
@@ -275,96 +226,101 @@
                 </v-col>
               </v-row>
             </v-window-item>
-
             <v-window-item value="two">
               <v-row>
                 <v-col lg="6" md="7" sm="12" cols="12">
                   <!-- table -->
-                  <v-data-table-virtual
-                    v-model:expanded="expanded"
-                    :headers="headers"
-                    :items="items"
-                    item-value="name"
-                    show-expand
-                    hide-pagination
-                  >
-                    <template v-slot:expanded-row="{ columns, item }">
+                  <v-table >
+                    <thead>
                       <tr>
-                        <td :colspan="columns.length">
-                          <!-- More info about {{ item }} -->
-                          <v-table class="ma-5 nested-table">
-                            <thead>
-                              <tr>
-                                <th class="text-center">
-                                  {{ $t("table.thead.kind") }}
-                                </th>
-                                <th class="text-center">
-                                  {{ $t("table.thead.price") }}
-                                </th>
-                                <th class="text-center">
-                                  {{ $t("table.thead.change") }}
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td class="text-center">
-                                  {{ $t("table.tbody.price") }}
-                                </td>
-                                <td class="text-center">
-                                  {{ $t("table.tbody.change") }}
-                                </td>
-                                <td class="text-center">
-                                  {{ $t("table.tbody.dealsnum") }}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </v-table>
-                        </td>
+                        <th class="text-center ">
+                          {{ $t("search.table.district") }}
+                        </th>
+                        <th class="text-center ">
+                          {{ $t("table.thead.price") }}
+                        </th>
+                        <th class="text-center ">
+                          {{ $t("search.table.location") }}
+                        </th>
                       </tr>
-                    </template>
-
-                    <template v-slot:item.actions="{ item }">
-                      <v-btn
-                        @click="showChart = true"
-                        class="table-icon"
-                        density="compact"
-                        icon="mdi-arrow-top-right"
-                      ></v-btn>
-                      <v-btn
-                        @click="showChart = false"
-                        class="table-icon"
-                        density="compact"
-                        icon="mdi-map-marker"
-                      ></v-btn>
-                    </template>
-                  </v-data-table-virtual>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">
+                          {{ $t("search.table.district") }}
+                        </td>
+                        <td class="text-center">
+                          {{ $t("table.tbody.change") }}
+                        </td>
+                        <td class="text-center">
+                          <v-btn
+                          @click="showChart = false"
+                          class="table-icon"
+                          density="compact"
+                          icon="mdi-map-marker"
+                        ></v-btn>
+                          </td>
+                      </tr>
+                    </tbody>
+                  </v-table>
 
                   <!-- table -->
                 </v-col>
                 <v-col lg="6" md="5" sm="12" cols="12">
-                  <template v-if="showChart">
-                    <section class="d-flex justify-space-between pointer-chart">
-                      <p>شقة</p>
-                      <div>
-                        <span>
-                          <v-icon color="#5A55D2" size="x-small"
-                            >mdi-circle</v-icon
-                          >
-                          عدد الصفقات
-                        </span>
-                        <span class="ms-4">
-                          <v-icon color="#00DEA3" size="x-small"
-                            >mdi-circle</v-icon
-                          >
-                          متوسط الأسعار
-                        </span>
-                      </div>
-                    </section>
-                    <section style="max-height: 160px">
-                      <PointerChart />
-                    </section>
-                  </template>
+                  <iframe
+                    v-if="!showChart"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d55299.64092390445!2d30.9133312!3d29.9728896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714756559100!5m2!1sen!2seg"
+                    width="600"
+                    height="250"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </v-col>
+              </v-row>
+            </v-window-item>
+            <v-window-item value="three">
+              <v-row>
+                <v-col lg="6" md="7" sm="12" cols="12">
+                  <!-- table -->
+                  <v-table >
+                    <thead>
+                      <tr>
+                        <th class="text-center ">
+                          {{ $t("search.table.district") }}
+                        </th>
+                        <th class="text-center ">
+                          {{ $t("table.thead.price") }}
+                        </th>
+                        <th class="text-center ">
+                          {{ $t("search.table.location") }}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">
+                          {{ $t("search.table.district") }}
+                        </td>
+                        <td class="text-center">
+                          {{ $t("table.tbody.change") }}
+                        </td>
+                        <td class="text-center">
+                          <v-btn
+                          @click="showChart = false"
+                          class="table-icon"
+                          density="compact"
+                          icon="mdi-map-marker"
+                        ></v-btn>
+                          </td>
+                      </tr>
+                    </tbody>
+                  </v-table>
+
+                  <!-- table -->
+                </v-col>
+                <v-col lg="6" md="5" sm="12" cols="12">
                   <iframe
                     v-if="!showChart"
                     src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d55299.64092390445!2d30.9133312!3d29.9728896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714756559100!5m2!1sen!2seg"
@@ -379,28 +335,29 @@
               </v-row>
             </v-window-item>
 
+
           </v-window>
         </v-card-text>
 
-        <v-btn @click="dialog = true" class="buttonpop">
+        <!-- <v-btn @click="dialog = true" class="buttonpop">
             <v-img src="@/assets/images/citizen.jpg"/>
             {{ $t("home.button") }}
           <span class="spannum">  {{ $t("home.button2") }} </span>
-        </v-btn>
+        </v-btn> -->
 
       </v-card>
     </v-container>
   </section>
 
   <!-- pop up -->
-  <v-dialog v-model="dialog" max-width="600">
+  <!-- <v-dialog v-model="dialog" max-width="600">
     <v-card class="text-center pb-5">
       <template #title>
         <h6 class="mb-3">{{ $t("table.title") }}</h6>
-      </template>
+      </template> -->
       <!-- table -->
 
-      <v-table class="px-6">
+      <!-- <v-table class="px-6">
         <thead class="pop-up-head">
           <tr>
             <th>{{ $t("table.thead.pricesrange") }}</th>
@@ -436,19 +393,19 @@
         @click="dialog = false"
       ></v-btn>
     </v-card>
-  </v-dialog>
+  </v-dialog> -->
 
 
 </template>
 
 <script>
 import { computed, defineComponent, ref } from "vue";
-import PointerChart from "@/components/global/charts/Pointer.vue";
+// import PointerChart from "@/components/global/charts/Pointer.vue";
 import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   name: "PointerView",
-  components: { PointerChart },
+  // components: { PointerChart },
 
   setup() {
     const tab = ref(null);

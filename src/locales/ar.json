@@ -154,6 +154,15 @@
     "kind":"نوع الوحدة",
     "price-from":"السعر من",
     "price-to":"السعر إلى",
-    "search":"البحث"
+    "search":"البحث",
+    "tabs":{
+      "apartment":"شقة",
+      "floor":"دور",
+      "villa":"فيلا"
+    },
+    "table":{
+      "district":"حي",
+      "location":"موقع"
+    }
   }
 }
