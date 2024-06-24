@@ -4,7 +4,7 @@
       <v-row>
         <v-col md="6" sm="12" cols="12">
           <section class="d-flex align-center">
-            <span>المؤشر العام :</span>
+            <span class="dotstyle">المؤشر العام :</span>
             <h1
               style="color: #00ab84; text-align: center; display: inline-block"
             >
