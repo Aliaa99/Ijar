@@ -1,5 +1,5 @@
 * {
-  font-family: $medium-font;
+  font-family: $medium-font, 'serif';
   font-weight: 500;
 }
 .text-primary-md {
@@ -21,7 +21,7 @@
 }
 .p-fixed {
   position: fixed !important;
-  z-index: 2401;
+  z-index: 9;
 }
 a,
 button {

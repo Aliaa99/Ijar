@@ -16,11 +16,28 @@
 //         padding: 10px;
 //     }
 // }
-.v-carousel{
-    .v-sheet{
-        background-color: transparent !important;
-        p{
-            font-size: 16px;
-        }
+.v-carousel {
+  .v-sheet {
+    background-color: transparent !important;
+    p {
+      font-size: 16px;
     }
+  }
+}
+
+// tabs
+.newtabstyle {
+  display: inline-block !important;
+  background-color: transparent !important;
+  overflow: visible !important;
+  .v-btn {
+    color: white;
+    background-color: #c4c4c4;
+    border-radius: 14px !important;
+    height: 36px !important;
+  }
+  .v-tab--selected {
+    color: white;
+    background-color: $primary-md;
+  }
 }

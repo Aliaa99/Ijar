@@ -31,35 +31,40 @@ export default defineComponent({
   components: { Line },
   setup() {
     const data = {
-      labels: [
-        "Jan",
-        "Feb",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
+      labels: ["2019", "2020", "2021", "2022", "2023"],
       datasets: [
         {
-          label: "Loyal Customers",
-          backgroundColor: "#A700FF",
-          data: [240, 390, 210, 450, 390, 280, 410, 300, 100, 430, 270, 580],
+          label: "فلة",
+          backgroundColor: "#ec4541",
+          data: [1, 1, 1, 1, 1],
+          fill: true,
+          borderColor: "#ec4541",
+          pointRadius: 2,
         },
         {
-          label: "New Customers",
-          backgroundColor: "#EF4444",
-          data: [340, 390, 110, 350, 320, 220, 210, 300, 200, 230, 370, 580],
+          label: "دور",
+          backgroundColor: "#3dda57",
+          fill: true,
+          borderColor: "#3dda57",
+          pointRadius: 2,
+          data: [0.97, 0.96, 0.94, 0.9, 0.9],
         },
         {
-          label: "Unique Customers",
-          backgroundColor: "#3CD856",
-          data: [440, 590, 310, 250, 120, 520, 410, 500, 200, 230, 570, 380],
+          label: "شقة",
+          backgroundColor: "#a502ff",
+          fill: true,
+          borderColor: "#a502ff",
+          pointRadius: 2,
+          data: [0.99, 0.98, 0.95, 0.93, 0.96],
+        },
+
+        {
+          label: "المؤشر العام",
+          backgroundColor: "#ffe804",
+          fill: true,
+          borderColor: "#ffe804",
+          pointRadius: 2,
+          data: [0.99, 0.96, 0.94, 0.95, 0.96],
         },
       ],
     };
@@ -67,6 +72,14 @@ export default defineComponent({
     const options = {
       responsive: true,
       maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: "bottom",
+          labels: {
+            usePointStyle: true,
+          },
+        },
+      },
       //   drawActiveElementsOnTop: false,
       scales: {
         x: {

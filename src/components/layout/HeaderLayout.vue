@@ -17,7 +17,7 @@
                     <v-img src="../../assets/images/logo.png" />
                   </router-link>    
                 </v-col>
-                <v-col cols="7">
+                <v-col cols="7" >
                   <span class="logotitle">المؤشر الايجاري</span>
                 </v-col>
               </v-row>
@@ -25,9 +25,9 @@
           </v-col>
 
           <v-col
-            lg="9"
-            md="9"
-            cols="9"
+            lg="8"
+            md="8"
+            cols="8"
             class="d-flex "
             align-self="center"
           >
@@ -43,12 +43,12 @@
               </v-list>
             </v-toolbar-items>
           </v-col>
-          <!-- <v-col lg="2" cols="3" class="d-flex align-center justify-end">
-            <v-btn color="primary" variant="flat" to="/login">
+          <v-col lg="1" cols="1" class="d-flex align-center justify-end">
+            <!-- <v-btn color="primary" variant="flat" to="/login">
               {{ $t("header.login") }}
             </v-btn> -->
-            <!-- <slot /> -->
-          <!-- </v-col> -->
+            <slot />
+          </v-col>
         </v-row>
       </v-container>
     </v-toolbar>
@@ -65,9 +65,6 @@
             :title="item.title"
           ></v-list-item>
           <v-list-item>
-            <v-btn color="primary" variant="flat" to="/login">
-              {{ $t("header.login") }}
-            </v-btn>
             <slot />
           </v-list-item>
         </v-list>
@@ -128,10 +125,10 @@ export default defineComponent({
           title: t("header.search"),
           go: "/search",
         },
-        {
-          title: t("header.inquiries"),
-          go: t("/inquiries"),
-        },
+        // {
+        //   title: t("header.inquiries"),
+        //   go: t("/inquiries"),
+        // },
         {
           title: t("header.reports"),
           go: t("/reports"),

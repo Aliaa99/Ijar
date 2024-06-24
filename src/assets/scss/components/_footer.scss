@@ -1,6 +1,35 @@
 footer {
-    background-color: $primary;
+    background-color: #2a3440;
     p {
         color: $white;
+        text-align: right;
+    }
+    .v-list{
+        background-color: transparent;
+        .v-list-subheader{
+            color: $primary;
+            font-size: 20px;
+            padding: 0px;
+            border-bottom: 1px solid $gray-span;
+            padding-inline-start: calc(0px + var(--indent-padding)) !important;
+        } 
+        .v-list-item{
+            .v-list-item__spacer{
+                width: 5px;
+            }
+            .v-list-item-title{
+                color: white;
+                text-align: right;
+                font-weight: 100;
+                min-height: 30px!important;
+            }
+            .v-icon{
+                color: white;
+                font-size: 15px;
+            }
+        }   
+    }
+    .bottom-footer{
+        border-top: 1px solid $gray-span;
     }
 }
