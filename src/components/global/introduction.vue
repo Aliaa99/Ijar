@@ -5,9 +5,8 @@
         <v-col lg="7" md="6" cols="12">
           <section class="d-flex align-center justify-start h-100">
             <article>
-              <h1 class="text-45">
+              <h1 class="text-32">
                 <span>{{ $t("home.intro.title") }}</span>
-                <br>
                 <span class="text-primary">{{ $t("home.intro.sub_title") + ' ' }}</span>
                 <span>{{ $t("home.intro.private") }}</span>
               </h1>
