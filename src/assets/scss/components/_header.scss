@@ -83,3 +83,9 @@
     z-index: 0;
   }
 }
+.langbtn{
+  @media (max-width: 600px) {
+    font-size: 12px !important;
+  }
+
+}

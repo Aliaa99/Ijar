@@ -1,7 +1,7 @@
 <template>
   <v-menu location="start">
     <template v-slot:activator="{ props }">
-      <v-btn v-bind="props">
+      <v-btn v-bind="props" class="langbtn">
         <v-icon>mdi-web</v-icon>
         <span v-if="locale == 'ar'" class="ms-1">العربية</span>
         <span v-else class="ms-1">الانجليزية</span>
