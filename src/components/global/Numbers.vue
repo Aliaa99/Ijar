@@ -23,7 +23,7 @@
               <article>
                 <span class="text-primary-md">{{ item.header }}</span>
                 <br />
-                <span>{{ item.num }}</span>
+                <span class="serif">{{ item.num }}</span>
               </article>
               <v-spacer />
               <v-avatar size="54" >
@@ -32,7 +32,7 @@
             </v-card-title>
             <v-card-text>
               <p>{{ item.body }}</p>
-              <p>{{ item.average }}</p>
+              <p>{{ item.average }} <span class="serif">{{item.averagenum}}</span></p>
             </v-card-text>
           </v-card>
         </v-col>
@@ -55,6 +55,7 @@ export default defineComponent({
           num: "143",
           body: t("home.numbers.house.body"),
           average: t("home.numbers.house.average"),
+          averagenum: t("home.numbers.house.averagenum"),
           icon: "src/assets/images/numbers/01.png",
           class: "house",
         },
@@ -63,6 +64,7 @@ export default defineComponent({
           num: "1.112",
           body: t("home.numbers.commercial.body"),
           average: t("home.numbers.commercial.average"),
+          averagenum: t("home.numbers.house.averagenum"),
           icon: "src/assets/images/numbers/02.png",
           class: "commercial",
         },
@@ -71,6 +73,7 @@ export default defineComponent({
           num: "1.555",
           body: t("home.numbers.buildings.body"),
           average: t("home.numbers.buildings.average"),
+          averagenum: t("home.numbers.house.averagenum"),
           icon: "src/assets/images/numbers/03.png",
           class: "buildings",
         },
@@ -79,6 +82,7 @@ export default defineComponent({
           num: "1.112",
           body: t("home.numbers.deals.body"),
           average: t("home.numbers.deals.average"),
+          averagenum: t("home.numbers.house.averagenum"),
           icon: "src/assets/images/numbers/04.png",
           class: "deals",
         },

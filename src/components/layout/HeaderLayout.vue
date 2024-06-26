@@ -64,15 +64,15 @@
             :key="i"
             :title="item.title"
           ></v-list-item>
-          <v-list-item>
+          <!-- <v-list-item>
             <slot />
-          </v-list-item>
+          </v-list-item> -->
         </v-list>
       </v-navigation-drawer>
       <v-main style="height: auto">
         <div class="mobile-style pt-5" id="header2">
           <v-row justify="space-between">
-            <v-col cols="10">
+            <v-col cols="8">
               <img
                 src="../../assets/images/logo.png"
                 class="pr-5"
@@ -84,6 +84,9 @@
             <!-- <v-col cols="2">
               <span class="logotitle">المؤشر الايجاري</span>
             </v-col> -->
+            <v-col cols="2">
+              <slot />
+            </v-col>
 
             <v-col cols="2">
               <v-btn color="primary" @click.stop="drawer = !drawer">

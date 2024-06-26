@@ -7,10 +7,10 @@ footer {
     .v-list{
         background-color: transparent;
         .v-list-subheader{
-            color: $primary;
+            color: #00ab84;
             font-size: 20px;
             padding: 0px;
-            border-bottom: 1px solid $gray-span;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
             padding-inline-start: calc(0px + var(--indent-padding)) !important;
         } 
         .v-list-item{
@@ -46,7 +46,7 @@ footer {
         
     
     .bottom-footer{
-        border-top: 1px solid $gray-span;
+        border-top: 1px solid rgba(255, 255, 255, .1);
         .v-img{
             img{
                 // width: 100px;
