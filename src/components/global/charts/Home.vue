@@ -40,6 +40,7 @@ export default defineComponent({
           fill: true,
           borderColor: "#ec4541",
           pointRadius: 2,
+          lineTension: 0.8,
         },
         {
           label: "دور",
@@ -47,7 +48,8 @@ export default defineComponent({
           fill: true,
           borderColor: "#3dda57",
           pointRadius: 2,
-          data: [0.97, 0.96, 0.94, 0.9, 0.9],
+          data: [0.97, 0.93, 0.97, 0.9, 0.9],
+          lineTension: 0.8,
         },
         {
           label: "شقة",
@@ -55,7 +57,8 @@ export default defineComponent({
           fill: true,
           borderColor: "#a502ff",
           pointRadius: 2,
-          data: [0.99, 0.98, 0.95, 0.93, 0.96],
+          data: [],
+          lineTension: 0.8,
         },
 
         {
@@ -64,7 +67,8 @@ export default defineComponent({
           fill: true,
           borderColor: "#ffe804",
           pointRadius: 2,
-          data: [0.99, 0.96, 0.94, 0.95, 0.96],
+          data: [0.99, 0.96, 1, 0.95, 0.96],
+          lineTension: 0.8,
         },
       ],
     };
@@ -72,11 +76,16 @@ export default defineComponent({
     const options = {
       responsive: true,
       maintainAspectRatio: false,
+
       plugins: {
         legend: {
           position: "bottom",
           labels: {
             usePointStyle: true,
+            boxWidth: 12,
+            font: {
+              family: "dinar md",
+            },
           },
         },
       },
