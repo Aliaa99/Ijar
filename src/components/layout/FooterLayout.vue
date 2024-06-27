@@ -3,7 +3,7 @@
     <div class="footer-links">
       <v-container>
         <v-row>
-          <v-col md="4" sm="12" cols="12">
+          <v-col md="4" sm="4" cols="12">
             <div class="logo-footer d-flex align-center">
               <img height="" src="../../assets/images/f3.png" />
               <p class="ms-2">المؤشر الايجاري</p>
@@ -11,7 +11,7 @@
           </v-col>
           <v-col md="8" sm="12" cols="12">
             <v-row>
-              <v-col md="4" sm="12" cols="12">
+              <v-col md="4" sm="4" cols="12">
                 <v-list>
                   <v-list-subheader>{{
                     $t("footer.links.relation")
@@ -35,7 +35,7 @@
                   </v-list-item>
                 </v-list>
               </v-col>
-              <v-col md="4" sm="12" cols="12">
+              <v-col md="4" sm="4" cols="12">
                 <v-list>
                   <v-list-subheader>
                     {{ $t("footer.links.reborts") }}
@@ -53,7 +53,7 @@
                     <template v-slot:prepend>
                       <v-icon :icon="item.icon"></v-icon>
                     </template>
-                    <router-link to="/">
+                    <router-link to="/pointer">
                       <v-list-item-title>
                         <span>{{ item.text }}</span>
                         <span class="serif ms-1">
@@ -64,7 +64,7 @@
                   </v-list-item>
                 </v-list>
               </v-col>
-              <v-col md="4" sm="12" cols="12">
+              <v-col md="4" sm="4" cols="12">
                 <v-list>
                   <v-list-subheader>{{
                     $t("footer.links.help")
@@ -96,12 +96,12 @@
     <div class="bottom-footer">
       <v-container>
         <v-row>
-          <v-col md="8" sm="12" cols="12" class="d-flex align-center">
+          <v-col md="8" sm="6" cols="12" class="d-flex align-center">
             <p class="text-15">
               {{ $t("footer.text") }} <span class="serif">@2024</span>
             </p>
           </v-col>
-          <v-col md="4" sm="12" cols="12">
+          <v-col md="4" sm="6" cols="12">
             <section class="d-flex justify-end align-center">
               <img height="54px" src="../../assets/images/f2.png" />
               <img height="45px" src="../../assets/images/f1.png" />

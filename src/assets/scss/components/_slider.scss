@@ -21,9 +21,25 @@
     background-color: transparent !important;
     p {
       font-size: 15px;
+      @media(max-width: 767px) {
+        font-size: 12px !important;
+      }
+    }
+    h2 {
+      @media(max-width: 767px) {
+        font-size: 20px !important;
+      }
+    }
+    .v-card{
+      box-shadow: 0px 0px 1px -1px;
     }
   }
 }
+// .reverse{
+//   @media (max-width: 959px) {
+//     flex-direction: row-reverse;
+//   }
+// }
 
 // tabs
 .newtabstyle {
@@ -39,21 +55,27 @@
   .v-tab--selected {
     color: white;
     background-color: $primary-md;
+    .v-tab__slider {
+      display: none !important;
+    }
   }
 }
+a {
+  text-decoration: none !important;
+}
 // dot style
-.dotstyle{
-    position: relative;
-    padding-right: 15px;
-    font-weight: bold;
-    &::after{
-      content: '';
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      right: 0px;
-      top: 5px;
-      background-color: black;
-      border-radius: 50%;
-    }
+.dotstyle {
+  position: relative;
+  padding-right: 15px;
+  font-weight: bold;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    right: 0px;
+    top: 5px;
+    background-color: black;
+    border-radius: 50%;
+  }
 }

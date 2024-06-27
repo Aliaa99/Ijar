@@ -2,10 +2,17 @@
   <section class="mt-12 pt-6 deals_section">
     <v-container class="py-5">
       <v-row>
-        <v-col lg="4" md="3" sm="3" xs="2" cols="12">
+        <v-col
+          class="d-flex align-center"
+          lg="4"
+          md="3"
+          sm="3"
+          xs="2"
+          cols="12"
+        >
           <img width="100%" src="../../assets/images/user.png" />
         </v-col>
-        <v-col lg="8" md="9" sm="6" xs="10" cols="12">
+        <v-col lg="8" md="9" sm="9" xs="10" cols="12">
           <article class="px-4">
             <h2 class="text-36" style="color: #00ab84">
               {{ $t("home.deals.title") }}

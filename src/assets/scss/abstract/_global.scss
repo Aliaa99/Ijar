@@ -68,5 +68,21 @@ input[type="date"] {
   }
 }
 .serif{
-  font-family: serif !important;
+  font-family: sans-serif !important;
+}
+.block{
+  
+  @media (max-width:1280px) {
+    display: block !important;
+  }
+}
+.v-chip--variant-tonal .v-chip__underlay{
+  background: transparent !important;
+
+}
+
+.nomargin{
+  @media (max-width: 500px) {
+    margin: 0px !important;
+  }
 }

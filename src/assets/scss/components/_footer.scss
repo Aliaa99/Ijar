@@ -39,6 +39,10 @@ footer {
             width: 25%;
             text-align: right;
             right: 0;
+            @media (max-width: 959px) {
+                width: 14%;
+              }
+            
          }
          span{
             position: absolute;

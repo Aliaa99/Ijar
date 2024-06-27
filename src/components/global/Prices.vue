@@ -1,9 +1,14 @@
 <template>
   <section class="my-12 py-12 prices-section">
     <v-container class="py-5">
-      <v-row>
-        <v-col md="6" sm="12" cols="12">
-          <section class="d-flex align-center">
+      <v-row class="reverse">
+        <v-col
+          md="6"
+          sm="6"
+          cols="12"
+          class="order-last order-lg-first order-md-first order-sm-last"
+        >
+          <section class="d-flex align-center block">
             <span class="dotstyle">المؤشر العام :</span>
             <h1
               style="color: #00ab84; text-align: center; display: inline-block"
@@ -12,8 +17,10 @@
             </h1>
             <v-spacer />
             <v-tabs v-model="tab" class="newtabstyle" align-tabs="end">
-              <v-tab value="one" density="compact" size="small">سكني</v-tab>
-              <v-tab value="two" class="ms-2">تجاري</v-tab>
+              <v-tab value="one" density="compact" size="small" class="my-1"
+                >سكني</v-tab
+              >
+              <v-tab value="two" class="ms-2 my-1">تجاري</v-tab>
             </v-tabs>
           </section>
 
@@ -37,8 +44,8 @@
             <HomeChart />
           </section> -->
         </v-col>
-        <v-col md="6" sm="12" cols="12" class="d-flex align-center">
-          <section class="ms-12">
+        <v-col md="6" sm="6" cols="12" class="d-flex align-center">
+          <section class="ms-md-12 nomargin">
             <article>
               <h2 class="text-primary text-36">
                 {{ $t("home.prices.title") }}

@@ -15,22 +15,16 @@
                 <v-col cols="5">
                   <router-link to="/">
                     <v-img src="../../assets/images/logo.png" />
-                  </router-link>    
+                  </router-link>
                 </v-col>
-                <v-col cols="7" >
+                <v-col cols="7">
                   <span class="logotitle">المؤشر الايجاري</span>
                 </v-col>
               </v-row>
             </v-toolbar-title>
           </v-col>
 
-          <v-col
-            lg="8"
-            md="8"
-            cols="8"
-            class="d-flex "
-            align-self="center"
-          >
+          <v-col lg="8" md="8" cols="8" class="d-flex" align-self="center">
             <v-toolbar-items>
               <v-list class="d-flex py-0 transparent">
                 <v-list-item
@@ -64,9 +58,6 @@
             :key="i"
             :title="item.title"
           ></v-list-item>
-          <!-- <v-list-item>
-            <slot />
-          </v-list-item> -->
         </v-list>
       </v-navigation-drawer>
       <v-main style="height: auto">
@@ -81,18 +72,38 @@
               <span class="logotitle mx-5">المؤشر الايجاري</span>
             </v-col>
 
-            <!-- <v-col cols="2">
-              <span class="logotitle">المؤشر الايجاري</span>
-            </v-col> -->
             <v-col cols="2">
               <slot />
             </v-col>
 
             <v-col cols="2">
-              <v-btn color="primary" @click.stop="drawer = !drawer">
-                <v-icon class="hidden-md-and-up" icon="mdi-menu" size="large">
-                </v-icon>
-              </v-btn>
+              <v-menu transition="scale-transition" v-model="menu">
+                <template v-slot:activator="{ props }">
+                  <v-btn color="primary" style="min-width: 36px" v-bind="props">
+                    <v-icon
+                      class="hidden-md-and-up"
+                      :icon="menu ? 'mdi-close' : 'mdi-menu'"
+                    />
+                  </v-btn>
+                </template>
+
+                <v-list class="redponsive-menu py-0">
+                  <v-list-item
+                    v-for="(item, i) in items"
+                    :key="i"
+                    :to="item.go"
+                    density="compact"
+                  >
+                    <v-list-item-title
+                      ><small>{{ item.title }}</small></v-list-item-title
+                    >
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+
+              <!-- <v-btn color="primary" @click.stop="drawer = !drawer">
+                <v-icon class="hidden-md-and-up" icon="mdi-menu" size="large" />
+              </v-btn> -->
             </v-col>
           </v-row>
         </div>
@@ -110,6 +121,7 @@ export default defineComponent({
     const { t } = useI18n();
     const drawer = ref(null);
     const active = ref(false);
+    const menu = ref(false);
     const items = computed(() => {
       return [
         {
@@ -189,7 +201,7 @@ export default defineComponent({
     //   },
     //   { deep: true, immediate: true }
     // );
-    return { t, items, drawer, active };
+    return { t, items, drawer, active, menu };
   },
 });
 

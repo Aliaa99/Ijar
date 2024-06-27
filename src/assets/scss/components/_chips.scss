@@ -1,6 +1,8 @@
 .chips-style {
   background-color: #f3f3f3;
   border-radius: 8px;
+  position: relative;
+  overflow: visible !important;
   .v-chip {
     background-color: #b1ebdc;
     color: $black;
@@ -10,5 +12,16 @@
   }
   .chip-selected {
     background-color: $primary-md !important;
+  }
+  &::after{
+    content: "";
+    position: absolute;
+    top: -8px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #f3f3f3;
+    z-index: 9;
+    display: block;
+    right: 80px;
   }
 }
