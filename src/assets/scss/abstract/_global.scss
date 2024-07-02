@@ -1,5 +1,5 @@
 * {
-  font-family: $medium-font, 'serif';
+  font-family: $medium-font, "serif";
   font-weight: 500;
 }
 .text-primary-md {
@@ -67,22 +67,38 @@ input[type="date"] {
     border: 2px solid;
   }
 }
-.serif{
+.serif {
   font-family: sans-serif !important;
 }
-.block{
-  
-  @media (max-width:1280px) {
+.block {
+  @media (max-width: 1280px) {
     display: block !important;
   }
 }
-.v-chip--variant-tonal .v-chip__underlay{
+.v-chip--variant-tonal .v-chip__underlay {
   background: transparent !important;
-
 }
 
-.nomargin{
+.nomargin {
   @media (max-width: 500px) {
     margin: 0px !important;
   }
+}
+
+.dp__overlay_cell_active {
+  background-color: $primary-md !important;
+}
+
+.dp__input {
+  background: #ebebeb !important;
+  height: 40px;
+  border-radius: 4px !important;
+  border: none !important;
+}
+.dp__outer_menu_wrap ,.dp--menu-wrapper{
+  bottom: 0px !important;
+  top: auto !important;
+}
+.visible{
+  overflow: visible !important;
 }

@@ -83,6 +83,17 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/Services',
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: '',
+        name: 'services',
+        component: () => import('@/views/Services.vue'),
+      },
+    ],
+  },
 ]
 
 const router = createRouter({

@@ -149,8 +149,8 @@ export default defineComponent({
           go: t("/reports"),
         },
         {
-          title: t("header.services"),
-          go: t("/reports"),
+          title: t("header.Services"),
+          go: t("/Services"),
         },
       ];
     });

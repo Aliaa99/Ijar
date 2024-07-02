@@ -131,11 +131,25 @@
       }
     }
   }
+  .status {
+    height: 25px;
+    width: 4px;
+    margin: auto;
+    &-active {
+      background-color: #0c0df5;
+    }
+    &-success {
+      background-color: #008001;
+    }
+    &-fail {
+      background-color: #af312e;
+    }
+  }
   .v-data-table-column--no-padding {
     button {
       position: absolute;
       right: 0;
-      bottom: 1rem;
+      bottom: 2rem;
       background-color: $primary-md;
       height: 1.5rem;
       width: 1.5rem;
@@ -189,7 +203,7 @@
   }
 }
 // pop up button
-.buttonpop{
+.buttonpop {
   position: absolute !important;
   right: -40px;
   background-color: $tabs-slide !important;
@@ -201,12 +215,12 @@
   @media (max-width: 959px) {
     right: 0px;
   }
-  .v-img{
+  .v-img {
     width: 35px;
     height: 35px;
     border-radius: 50%;
   }
-  .spannum{
+  .spannum {
     color: $primary-md;
   }
 }

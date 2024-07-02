@@ -122,7 +122,6 @@
                 clearable
               ></v-select>
             </v-col>
-
           </v-row>
         </v-card>
       </v-card>
@@ -186,38 +185,227 @@
                     show-expand
                     hide-pagination
                   >
+                    <template v-slot:item.kind="{ item }">
+                      <section class="py-2">
+                        {{ item.kind }}
+                        <div>
+                          <v-chip class="chipsstyle">غرفة</v-chip>
+                          <v-chip class="chipsstyle ms-1">غرفتين</v-chip>
+                          <v-chip class="chipsstyle ms-1">ثلاث غرف</v-chip>
+                        </div>
+                      </section>
+                    </template>
+
+                    <template v-slot:item.safa="{ item }">
+                      <span class="serif">{{ item.safa }}</span>
+                    </template>
+
+                    <template v-slot:item.price="{ item }">
+                      <span class="serif">{{ item.price }}</span>
+                    </template>
+                    <template v-slot:item.hamraa="{ item }">
+                      <span class="serif">{{ item.price }}</span>
+                    </template>
+                    <template v-slot:item.rabwa="{ item }">
+                      <span class="serif">{{ item.price }}</span>
+                    </template>
+
                     <template v-slot:expanded-row="{ columns, item }">
                       <tr>
                         <td :colspan="columns.length">
                           <!-- More info about {{ item }} -->
-                          <v-table class="ma-5 nested-table">
-                            <thead>
-                              <tr>
-                                <th class="text-center">
-                                  {{ $t("table.thead.kind") }}
-                                </th>
-                                <th class="text-center">
-                                  {{ $t("table.thead.price") }}
-                                </th>
-                                <th class="text-center">
-                                  {{ $t("table.thead.change") }}
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td class="text-center">
-                                  {{ $t("table.tbody.price") }}
-                                </td>
-                                <td class="text-center">
-                                  {{ $t("table.tbody.change") }}
-                                </td>
-                                <td class="text-center">
-                                  {{ $t("table.tbody.dealsnum") }}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </v-table>
+                          <v-card
+                            class="ma-3"
+                            style="
+                              box-shadow: 0px 4px 15px 0px
+                                rgba(216, 210, 252, 0.6392156863) !important;
+                              border-bottom-left-radius: 15px !important;
+                              border-bottom-right-radius: 15px !important;
+                            "
+                          >
+                            <v-table
+                              class="nested-table"
+                              style="background-color: #f6fcfa !important"
+                            >
+                              <thead>
+                                <tr>
+                                  <th class="text-center"></th>
+                                  <th class="text-center">
+                                    {{ $t("table.thead.pricesrange") }}
+                                  </th>
+                                  <th class="text-center">
+                                    {{ $t("table.thead.dealsall") }}
+                                  </th>
+                                  <th class="text-center">
+                                    {{ $t("table.thead.price") }}
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr style="background-color: #e7e7e7">
+                                  <td
+                                    colspan="5"
+                                    style="height: 30px"
+                                    class="text-center"
+                                  >
+                                    <span class="text-primary-md">الصفاء</span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="status status-success"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    <div class="status status-active"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    <div class="status status-fail"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr style="background-color: #e7e7e7">
+                                  <td
+                                    colspan="5"
+                                    style="height: 30px"
+                                    class="text-center"
+                                  >
+                                    <span class="text-primary-md">الحمرا</span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="status status-success"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    <div class="status status-active"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    <div class="status status-fail"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr style="background-color: #e7e7e7">
+                                  <td
+                                    colspan="5"
+                                    style="height: 30px"
+                                    class="text-center"
+                                  >
+                                    <span class="text-primary-md">الربوة</span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="status status-success"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    <div class="status status-active"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    <div class="status status-fail"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </v-table>
+                          </v-card>
                         </td>
                       </tr>
                     </template>
@@ -289,38 +477,227 @@
                     show-expand
                     hide-pagination
                   >
+                    <template v-slot:item.kind="{ item }">
+                      <section class="py-2">
+                        {{ item.kind }}
+                        <div>
+                          <v-chip class="chipsstyle">غرفة</v-chip>
+                          <v-chip class="chipsstyle ms-1">غرفتين</v-chip>
+                          <v-chip class="chipsstyle ms-1">ثلاث غرف</v-chip>
+                        </div>
+                      </section>
+                    </template>
+
+                    <template v-slot:item.safa="{ item }">
+                      <span class="serif">{{ item.safa }}</span>
+                    </template>
+
+                    <template v-slot:item.price="{ item }">
+                      <span class="serif">{{ item.price }}</span>
+                    </template>
+                    <template v-slot:item.hamraa="{ item }">
+                      <span class="serif">{{ item.price }}</span>
+                    </template>
+                    <template v-slot:item.rabwa="{ item }">
+                      <span class="serif">{{ item.price }}</span>
+                    </template>
+
                     <template v-slot:expanded-row="{ columns, item }">
                       <tr>
                         <td :colspan="columns.length">
                           <!-- More info about {{ item }} -->
-                          <v-table class="ma-5 nested-table">
-                            <thead>
-                              <tr>
-                                <th class="text-center">
-                                  {{ $t("table.thead.kind") }}
-                                </th>
-                                <th class="text-center">
-                                  {{ $t("table.thead.price") }}
-                                </th>
-                                <th class="text-center">
-                                  {{ $t("table.thead.change") }}
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td class="text-center">
-                                  {{ $t("table.tbody.price") }}
-                                </td>
-                                <td class="text-center">
-                                  {{ $t("table.tbody.change") }}
-                                </td>
-                                <td class="text-center">
-                                  {{ $t("table.tbody.dealsnum") }}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </v-table>
+                          <v-card
+                            class="ma-3"
+                            style="
+                              box-shadow: 0px 4px 15px 0px
+                                rgba(216, 210, 252, 0.6392156863) !important;
+                              border-bottom-left-radius: 15px !important;
+                              border-bottom-right-radius: 15px !important;
+                            "
+                          >
+                            <v-table
+                              class="nested-table"
+                              style="background-color: #f6fcfa !important"
+                            >
+                              <thead>
+                                <tr>
+                                  <th class="text-center"></th>
+                                  <th class="text-center">
+                                    {{ $t("table.thead.pricesrange") }}
+                                  </th>
+                                  <th class="text-center">
+                                    {{ $t("table.thead.dealsall") }}
+                                  </th>
+                                  <th class="text-center">
+                                    {{ $t("table.thead.price") }}
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr style="background-color: #e7e7e7">
+                                  <td
+                                    colspan="5"
+                                    style="height: 30px"
+                                    class="text-center"
+                                  >
+                                    <span class="text-primary-md">الصفاء</span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="status status-success"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    <div class="status status-active"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    <div class="status status-fail"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr style="background-color: #e7e7e7">
+                                  <td
+                                    colspan="5"
+                                    style="height: 30px"
+                                    class="text-center"
+                                  >
+                                    <span class="text-primary-md">الحمرا</span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="status status-success"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    <div class="status status-active"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    <div class="status status-fail"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr style="background-color: #e7e7e7">
+                                  <td
+                                    colspan="5"
+                                    style="height: 30px"
+                                    class="text-center"
+                                  >
+                                    <span class="text-primary-md">الربوة</span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="status status-success"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    <div class="status status-active"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    <div class="status status-fail"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.pricesrange") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsall") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </v-table>
+                          </v-card>
                         </td>
                       </tr>
                     </template>
@@ -379,16 +756,17 @@
                 </v-col>
               </v-row>
             </v-window-item>
-
           </v-window>
         </v-card-text>
 
         <v-btn @click="dialog = true" class="buttonpop">
-            <v-img src="@/assets/images/citizen.jpg"/>
-            {{ $t("home.button") }}
-          <span class="spannum">  {{ $t("home.button2") }} </span>
+          <v-img src="@/assets/images/citizen.jpg" />
+          <p style="position: absolute; top: 0; right: 45px">
+            <span class="serif">555</span>
+          </p>
+          <p>{{ $t("home.button") }}</p>
+          <span class="spannum"> {{ $t("home.button2") }} </span>
         </v-btn>
-
       </v-card>
     </v-container>
   </section>
@@ -438,8 +816,6 @@
       ></v-btn>
     </v-card>
   </v-dialog>
-
-
 </template>
 
 <script>
@@ -462,6 +838,9 @@ export default defineComponent({
         kind: "شقة",
         dealsnum: 35,
         price: 22,
+        safa: 1250.3,
+        hamraa: 45.884,
+        rabwa: 558.44,
         actions: "",
       },
     ]);
@@ -492,16 +871,22 @@ export default defineComponent({
           key: "kind",
         },
         {
-          title: t("table.thead.dealsnum"),
+          title: t("table.thead.safa"),
           sortable: false,
           align: "center",
-          key: "dealsnum",
+          key: "safa",
         },
         {
-          title: t("table.thead.price"),
+          title: t("table.thead.hamraa"),
           sortable: false,
           align: "center",
-          key: "price",
+          key: "hamraa",
+        },
+        {
+          title: t("table.thead.rabwa"),
+          sortable: false,
+          align: "center",
+          key: "rabwa",
         },
         {
           title: t("table.thead.actions"),

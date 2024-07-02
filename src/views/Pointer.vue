@@ -16,7 +16,11 @@
             </template>
           </v-list-item>
         </v-list>
-        <v-card class="filter-card py-8 px-10" elevation="0">
+        <v-card
+          class="filter-card py-8 px-10"
+          style="overflow: visible"
+          elevation="0"
+        >
           <v-row>
             <v-col lg="3" md="6" sm="6" cols="12">
               <v-label>{{ $t("select.region.label") }}</v-label>
@@ -82,9 +86,50 @@
               style="height: 80px"
             ></v-divider>
             <v-col lg="3" md="6" sm="6" cols="12">
-              <v-label>{{ $t("select.from.label") }}</v-label>
+              <!-- tabs -->
+              <section class="d-flex justify-space-between">
+                <v-label style="margin-top: -10px">{{
+                  $t("select.from.label")
+                }}</v-label>
+                <v-tabs
+                  style="margin-top: -23px"
+                  v-model="filtertab"
+                  class="newtabstyle2"
+                  align-tabs="end"
+                >
+                  <v-tab value="x" density="compact" size="x-small" class="my-1"
+                    >شهري</v-tab
+                  >
+                  <v-tab value="y" size="x-small" class="ms-2 my-1"
+                    >ربع سنوي</v-tab
+                  >
+                </v-tabs>
+              </section>
 
-              <v-text-field
+              <v-tabs-window v-model="filtertab" class="visible">
+                <v-tabs-window-item value="x">
+                  <section>
+                    <VueDatePicker
+                      v-model="date"
+                      range
+                      month-picker
+                      :format-locale="ar"
+                      auto-apply
+                    ></VueDatePicker>
+                  </section>
+                </v-tabs-window-item>
+                <v-tabs-window-item value="y">
+                  <section>
+                    <VueDatePicker
+                      v-model="quarter"
+                      quarter-picker
+                      :format-locale="ar"
+                      auto-apply
+                    ></VueDatePicker>
+                  </section>
+                </v-tabs-window-item>
+              </v-tabs-window>
+              <!-- <v-text-field
                 v-model="payload.from"
                 flat
                 type="date"
@@ -92,13 +137,22 @@
                 density="compact"
                 variant="solo-filled"
                 pattern="\d{4}-\d{2}-\d{2}"
-              ></v-text-field>
+              ></v-text-field> -->
+
+              <!-- <VueDatePicker
+                v-model="date"
+                range
+                month-picker
+                :format-locale="ar"
+                auto-apply
+              ></VueDatePicker> -->
+
               <!-- <VueDatePicker v-model="payload.from"></VueDatePicker> -->
             </v-col>
           </v-row>
         </v-card>
       </v-card>
-      <v-card class="filter-tabs pa-4">
+      <v-card class="filter-tabs pa-4" style="z-index: auto !important">
         <v-tabs v-model="tab" color="primary">
           <section class="filter-tabs-btns">
             <v-tab value="one">{{ $t("pointer.tabs.housing") }}</v-tab>
@@ -158,6 +212,28 @@
                     show-expand
                     hide-pagination
                   >
+                    <template v-slot:item.kind="{ item }">
+                      <section class="py-2">
+                        {{ item.kind }}
+                        <div>
+                          <v-chip class="chipsstyle">غرفة</v-chip>
+                          <v-chip class="chipsstyle ms-1">غرفتين</v-chip>
+                          <v-chip class="chipsstyle ms-1">ثلاث غرف</v-chip>
+                        </div>
+                        <span style="font-size: 12px">
+                          <span class="serif">3</span>نطاق للأسعار
+                        </span>
+                      </section>
+                    </template>
+
+                    <template v-slot:item.dealsnum="{ item }">
+                      <span class="serif">{{ item.dealsnum }}</span>
+                    </template>
+
+                    <template v-slot:item.price="{ item }">
+                      <span class="serif">{{ item.price }}</span>
+                    </template>
+
                     <template v-slot:expanded-row="{ columns, item }">
                       <tr>
                         <td :colspan="columns.length">
@@ -165,6 +241,7 @@
                           <v-table class="ma-5 nested-table">
                             <thead>
                               <tr>
+                                <th class="text-center"></th>
                                 <th class="text-center">
                                   {{ $t("table.thead.kind") }}
                                 </th>
@@ -178,13 +255,42 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td class="text-center">
+                                <td>
+                                  <div class="status status-success"></div>
+                                </td>
+                                <td class="text-center serif">
                                   {{ $t("table.tbody.price") }}
                                 </td>
-                                <td class="text-center">
+                                <td class="text-center serif">
                                   {{ $t("table.tbody.change") }}
                                 </td>
-                                <td class="text-center">
+                                <td class="text-center serif">
+                                  {{ $t("table.tbody.dealsnum") }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <div class="status status-active"></div>
+                                </td>
+                                <td class="text-center serif">
+                                  {{ $t("table.tbody.price") }}
+                                </td>
+                                <td class="text-center serif">
+                                  {{ $t("table.tbody.change") }}
+                                </td>
+                                <td class="text-center serif">
+                                  {{ $t("table.tbody.dealsnum") }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><div class="status status-fail"></div></td>
+                                <td class="text-center serif">
+                                  {{ $t("table.tbody.price") }}
+                                </td>
+                                <td class="text-center serif">
+                                  {{ $t("table.tbody.change") }}
+                                </td>
+                                <td class="text-center serif">
                                   {{ $t("table.tbody.dealsnum") }}
                                 </td>
                               </tr>
@@ -261,6 +367,28 @@
                     show-expand
                     hide-pagination
                   >
+                    <template v-slot:item.kind="{ item }">
+                      <section class="py-2">
+                        {{ item.kind }}
+                        <div>
+                          <v-chip class="chipsstyle">غرفة</v-chip>
+                          <v-chip class="chipsstyle ms-1">غرفتين</v-chip>
+                          <v-chip class="chipsstyle ms-1">ثلاث غرف</v-chip>
+                        </div>
+                        <span style="font-size: 12px">
+                          <span class="serif">3</span>نطاق للأسعار
+                        </span>
+                      </section>
+                    </template>
+
+                    <template v-slot:item.dealsnum="{ item }">
+                      <span class="serif">{{ item.dealsnum }}</span>
+                    </template>
+
+                    <template v-slot:item.price="{ item }">
+                      <span class="serif">{{ item.price }}</span>
+                    </template>
+
                     <template v-slot:expanded-row="{ columns, item }">
                       <tr>
                         <td :colspan="columns.length">
@@ -268,6 +396,7 @@
                           <v-table class="ma-5 nested-table">
                             <thead>
                               <tr>
+                                <th class="text-center"></th>
                                 <th class="text-center">
                                   {{ $t("table.thead.kind") }}
                                 </th>
@@ -281,13 +410,42 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td class="text-center">
+                                <td>
+                                  <div class="status status-success"></div>
+                                </td>
+                                <td class="text-center serif">
                                   {{ $t("table.tbody.price") }}
                                 </td>
-                                <td class="text-center">
+                                <td class="text-center serif">
                                   {{ $t("table.tbody.change") }}
                                 </td>
-                                <td class="text-center">
+                                <td class="text-center serif">
+                                  {{ $t("table.tbody.dealsnum") }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <div class="status status-active"></div>
+                                </td>
+                                <td class="text-center serif">
+                                  {{ $t("table.tbody.price") }}
+                                </td>
+                                <td class="text-center serif">
+                                  {{ $t("table.tbody.change") }}
+                                </td>
+                                <td class="text-center serif">
+                                  {{ $t("table.tbody.dealsnum") }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><div class="status status-fail"></div></td>
+                                <td class="text-center serif">
+                                  {{ $t("table.tbody.price") }}
+                                </td>
+                                <td class="text-center serif">
+                                  {{ $t("table.tbody.change") }}
+                                </td>
+                                <td class="text-center serif">
                                   {{ $t("table.tbody.dealsnum") }}
                                 </td>
                               </tr>
@@ -351,16 +509,17 @@
                 </v-col>
               </v-row>
             </v-window-item>
-
           </v-window>
         </v-card-text>
 
         <v-btn @click="dialog = true" class="buttonpop">
-            <v-img src="@/assets/images/citizen.jpg"/>
-            {{ $t("home.button") }}
-          <span class="spannum">  {{ $t("home.button2") }} </span>
+          <v-img src="@/assets/images/citizen.jpg" />
+          <p style="position: absolute; top: 0; right: 45px">
+            <span class="serif">555</span>
+          </p>
+          <p>{{ $t("home.button") }}</p>
+          <span class="spannum"> {{ $t("home.button2") }} </span>
         </v-btn>
-
       </v-card>
     </v-container>
   </section>
@@ -410,14 +569,13 @@
       ></v-btn>
     </v-card>
   </v-dialog>
-
-
 </template>
 
 <script>
 import { computed, defineComponent, ref } from "vue";
 import PointerChart from "@/components/global/charts/Pointer.vue";
 import { useI18n } from "vue-i18n";
+import { ar } from "date-fns/locale";
 
 export default defineComponent({
   name: "PointerView",
@@ -425,10 +583,13 @@ export default defineComponent({
 
   setup() {
     const tab = ref(null);
+    const filtertab = ref(null);
     const dialog = ref(false);
     const showChart = ref(false);
-    const date = new Date().toISOString().substr(0, 10);
+    // const date = new Date().toISOString().substr(0, 10);
     const expanded = ref([]);
+    const date = ref();
+    const quarter = ref();
     const items = ref([
       {
         kind: "شقة",
@@ -495,6 +656,9 @@ export default defineComponent({
       headers,
       items,
       showChart,
+      ar,
+      filtertab,
+      quarter,
     };
   },
 });

@@ -60,6 +60,30 @@
     }
   }
 }
+// tabs
+.newtabstyle2 {
+  display: inline-block !important;
+  background-color: #dff5e3 !important;
+  overflow: visible !important;
+  border-radius: 15px !important;
+  --v-tabs-height: 35px !important;
+  margin-bottom: 10px;
+  .v-btn {
+    color: black;
+    background-color: transparent;
+    border-radius: 15px !important;
+    height: 34px !important;
+    margin: 0 auto !important;
+  }
+  .v-tab--selected {
+    color: white;
+    background-color: $primary-md;
+    .v-tab__slider {
+      display: none !important;
+    }
+  }
+}
+
 a {
   text-decoration: none !important;
 }
