@@ -125,7 +125,7 @@
           </v-row>
         </v-card>
       </v-card>
-      <v-card class="filter-tabs pa-4">
+      <v-card class="filter-tabs filter-newstyle pa-4">
         <v-tabs v-model="tab" color="primary">
           <section class="filter-tabs-btns">
             <v-tab value="one">{{ $t("pointer.tabs.housing") }}</v-tab>
@@ -184,6 +184,7 @@
                     item-value="name"
                     show-expand
                     hide-pagination
+                    class="mb-5"
                   >
                     <template v-slot:item.kind="{ item }">
                       <section class="py-2">

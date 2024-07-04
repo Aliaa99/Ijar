@@ -102,3 +102,13 @@ input[type="date"] {
 .visible{
   overflow: visible !important;
 }
+
+.dp__icon {
+  .dp__input_icon {
+    .dp__input_icons{
+      position: absolute;
+      left: 0 !important;
+  }
+}
+
+}

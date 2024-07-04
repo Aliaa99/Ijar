@@ -5,7 +5,39 @@
 // manhagiat
 
 .manhag{
-    margin-right: 20px;
-    margin-left: 20px;
-    border-radius: 10px;
+
+    margin-right: 30px;
+    margin-left: 30px;
+    border-radius: 10px !important;
+    box-shadow: 0px 0px 0px 1px #f2f2f2 !important;
+    margin-top: -6rem;
+    h1{
+        color: $primary-md;
+        padding: 5px; 
+    }
+    button{
+        background-color: $primary-md;
+        color: white;
+        padding: 0px 7px;
+        position: absolute;
+        left: 25px;
+        width: 80px;
+        font-size: 13px;
+        span{
+            
+        }
+    }
+    p{
+        line-height: 2;
+
+    }
+    .v-list{
+        p{
+            span{
+                color: $primary-md;
+                font-weight: bold;
+            }
+        }
+    }
 }
+

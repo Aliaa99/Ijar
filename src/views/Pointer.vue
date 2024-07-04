@@ -17,8 +17,11 @@
           </v-list-item>
         </v-list>
         <v-card
-          class="filter-card py-8 px-10"
-          style="overflow: visible"
+          class="filter-card py-8 px-10 pt-12"
+          style="
+            overflow: visible;
+            box-shadow: 0px 1px 2px 1px #ebebeb !important;
+          "
           elevation="0"
         >
           <v-row>
@@ -27,7 +30,6 @@
               <v-select
                 :items="regions"
                 v-model="payload.region"
-                :placeholder="$t('select.region.placeholder')"
                 variant="solo-filled"
                 item-title="title"
                 item-value="value"
@@ -48,7 +50,6 @@
               <v-select
                 :items="cities"
                 v-model="payload.city"
-                :placeholder="$t('select.city.placeholder')"
                 variant="solo-filled"
                 item-title="title"
                 item-value="value"
@@ -69,7 +70,6 @@
               <v-select
                 :items="districts"
                 v-model="payload.district"
-                :placeholder="$t('select.district.placeholder')"
                 variant="solo-filled"
                 item-title="title"
                 item-value="value"
@@ -87,15 +87,60 @@
             ></v-divider>
             <v-col lg="3" md="6" sm="6" cols="12">
               <!-- tabs -->
-              <section class="d-flex justify-space-between">
-                <v-label style="margin-top: -10px">{{
-                  $t("select.from.label")
-                }}</v-label>
-                <v-tabs
+              <section class="">
+                <v-label style="margin-top: -10px">
+                  {{ $t("select.from.label") }}</v-label
+                >
+
+                <v-btn-toggle
+                  v-model="filtertab"
+                  variant="outlined"
+                  size="x-small"
+                  divided
+                  class="newtabstyle2"
+                >
+                  <v-btn value="x" size="x-small">شهري</v-btn>
+                  <v-btn value="y" size="x-small">ربع سنوي</v-btn>
+                </v-btn-toggle>
+
+                <section>
+                  <VueDatePicker
+                    v-if="filtertab == 'x'"
+                    v-model="date"
+                    range
+                    month-picker
+                    :format-locale="ar"
+                    auto-apply
+                  >
+                    <template #arrow-left>
+                      <v-icon>mdi-chevron-right</v-icon>
+                    </template>
+                    <template #arrow-right>
+                      <v-icon>mdi-chevron-left</v-icon>
+                    </template>
+                  </VueDatePicker>
+                  <VueDatePicker
+                    v-if="filtertab == 'y'"
+                    v-model="quarter"
+                    quarter-picker
+                    :format-locale="ar"
+                    auto-apply
+                  >
+                    <template #arrow-left>
+                      <v-icon>mdi-chevron-right</v-icon>
+                    </template>
+                    <template #arrow-right>
+                      <v-icon>mdi-chevron-left</v-icon>
+                    </template>
+                  </VueDatePicker>
+                </section>
+
+                <!-- <v-tabs
                   style="margin-top: -23px"
                   v-model="filtertab"
                   class="newtabstyle2"
                   align-tabs="end"
+                  stacked
                 >
                   <v-tab value="x" density="compact" size="x-small" class="my-1"
                     >شهري</v-tab
@@ -103,32 +148,56 @@
                   <v-tab value="y" size="x-small" class="ms-2 my-1"
                     >ربع سنوي</v-tab
                   >
-                </v-tabs>
+                </v-tabs> -->
               </section>
 
-              <v-tabs-window v-model="filtertab" class="visible">
-                <v-tabs-window-item value="x">
+              <!-- <v-tabs-window v-model="filtertab" class="visible">
+                <v-tabs-window-item
+                  disabled
+                  value="x"
+                  style="animation: none !important"
+                >
                   <section>
                     <VueDatePicker
+                      v-if="filtertab != 'y'"
                       v-model="date"
                       range
                       month-picker
                       :format-locale="ar"
                       auto-apply
-                    ></VueDatePicker>
+                    >
+                      <template #arrow-left>
+                        <v-icon>mdi-chevron-right</v-icon>
+                      </template>
+                      <template #arrow-right>
+                        <v-icon>mdi-chevron-left</v-icon>
+                      </template>
+                    </VueDatePicker>
                   </section>
                 </v-tabs-window-item>
-                <v-tabs-window-item value="y">
+                <v-tabs-window-item
+                  disabled
+                  value="y"
+                  style="animation: none !important"
+                >
                   <section>
                     <VueDatePicker
+                      v-if="filtertab != 'x'"
                       v-model="quarter"
                       quarter-picker
                       :format-locale="ar"
                       auto-apply
-                    ></VueDatePicker>
+                    >
+                      <template #arrow-left>
+                        <v-icon>mdi-chevron-right</v-icon>
+                      </template>
+                      <template #arrow-right>
+                        <v-icon>mdi-chevron-left</v-icon>
+                      </template>
+                    </VueDatePicker>
                   </section>
                 </v-tabs-window-item>
-              </v-tabs-window>
+              </v-tabs-window> -->
               <!-- <v-text-field
                 v-model="payload.from"
                 flat
@@ -152,7 +221,7 @@
           </v-row>
         </v-card>
       </v-card>
-      <v-card class="filter-tabs pa-4" style="z-index: auto !important">
+      <v-card class="filter-tabs filter-newstyle pa-4" style="z-index: auto !important">
         <v-tabs v-model="tab" color="primary">
           <section class="filter-tabs-btns">
             <v-tab value="one">{{ $t("pointer.tabs.housing") }}</v-tab>
@@ -208,20 +277,23 @@
                     v-model:expanded="expanded"
                     :headers="headers"
                     :items="items"
-                    item-value="name"
+                    item-value="kind"
                     show-expand
                     hide-pagination
+                    class="mb-5"
                   >
                     <template v-slot:item.kind="{ item }">
                       <section class="py-2">
-                        {{ item.kind }}
-                        <div>
+                        <p style="font-size: 13px">{{ item.kind }}</p>
+                        <div v-if="item.hasDetails">
                           <v-chip class="chipsstyle">غرفة</v-chip>
                           <v-chip class="chipsstyle ms-1">غرفتين</v-chip>
                           <v-chip class="chipsstyle ms-1">ثلاث غرف</v-chip>
                         </div>
                         <span style="font-size: 12px">
-                          <span class="serif">3</span>نطاق للأسعار
+                          <span class="serif" v-if="item.hasDetails">3</span>
+                          <span v-else>لا يوجد</span>
+                          نطاق للأسعار
                         </span>
                       </section>
                     </template>
@@ -234,68 +306,85 @@
                       <span class="serif">{{ item.price }}</span>
                     </template>
 
-                    <template v-slot:expanded-row="{ columns, item }">
-                      <tr>
+                    <template v-slot:expanded-row="{ columns, item, index }">
+                      <tr v-if="item.hasDetails" :key="index">
                         <td :colspan="columns.length">
-                          <!-- More info about {{ item }} -->
-                          <v-table class="ma-5 nested-table">
-                            <thead>
-                              <tr>
-                                <th class="text-center"></th>
-                                <th class="text-center">
-                                  {{ $t("table.thead.kind") }}
-                                </th>
-                                <th class="text-center">
-                                  {{ $t("table.thead.price") }}
-                                </th>
-                                <th class="text-center">
-                                  {{ $t("table.thead.change") }}
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div class="status status-success"></div>
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.price") }}
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.change") }}
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.dealsnum") }}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="status status-active"></div>
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.price") }}
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.change") }}
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.dealsnum") }}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td><div class="status status-fail"></div></td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.price") }}
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.change") }}
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.dealsnum") }}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </v-table>
+                          <v-card
+                            class="ma-3"
+                            style="
+                              box-shadow: 0px 4px 15px 0px
+                                rgba(216, 210, 252, 0.6392156863) !important;
+                              border-bottom-left-radius: 15px !important;
+                              border-bottom-right-radius: 15px !important;
+                            "
+                          >
+                            <!-- More info about {{ item }} -->
+                            <v-table
+                              class="nested-table"
+                              style="
+                                background-color: rgb(246, 252, 250) !important;
+                              "
+                            >
+                              <thead>
+                                <tr>
+                                  <th class="text-center"></th>
+                                  <th class="text-center">
+                                    نطاق الأسعار
+                                  </th>
+                                  <th class="text-center">
+                                    توزيع الصفقات
+                                  </th>
+                                  <th class="text-center">
+                                    {{ $t("table.thead.price") }}
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <div class="status status-success"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    5,400 - 12,900
+                                  </td>
+                                  <td class="text-center serif">
+                                    29%
+                                  </td>
+                                  <td class="text-center serif">
+                                    15,091
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="status status-active"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    13,380 - 18,600
+                                  </td>
+                                  <td class="text-center serif">
+                                    19%
+                                  </td>
+                                  <td class="text-center serif">
+                                    18,920
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="status status-fail"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    18,640 - 34,270
+                                  </td>
+                                  <td class="text-center serif">
+                                    39%
+                                  </td>
+                                  <td class="text-center serif">
+                                    17,900
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </v-table>
+                          </v-card>
                         </td>
                       </tr>
                     </template>
@@ -363,9 +452,10 @@
                     v-model:expanded="expanded"
                     :headers="headers"
                     :items="items"
-                    item-value="name"
+                    item-value="kind"
                     show-expand
                     hide-pagination
+                    class="mb-5"
                   >
                     <template v-slot:item.kind="{ item }">
                       <section class="py-2">
@@ -392,65 +482,76 @@
                     <template v-slot:expanded-row="{ columns, item }">
                       <tr>
                         <td :colspan="columns.length">
-                          <!-- More info about {{ item }} -->
-                          <v-table class="ma-5 nested-table">
-                            <thead>
-                              <tr>
-                                <th class="text-center"></th>
-                                <th class="text-center">
-                                  {{ $t("table.thead.kind") }}
-                                </th>
-                                <th class="text-center">
-                                  {{ $t("table.thead.price") }}
-                                </th>
-                                <th class="text-center">
-                                  {{ $t("table.thead.change") }}
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div class="status status-success"></div>
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.price") }}
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.change") }}
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.dealsnum") }}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="status status-active"></div>
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.price") }}
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.change") }}
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.dealsnum") }}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td><div class="status status-fail"></div></td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.price") }}
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.change") }}
-                                </td>
-                                <td class="text-center serif">
-                                  {{ $t("table.tbody.dealsnum") }}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </v-table>
+                          <v-card
+                            style="
+                              box-shadow: 0px 4px 15px 0px
+                                rgba(216, 210, 252, 0.6392156863) !important;
+                              border-bottom-left-radius: 15px !important;
+                              border-bottom-right-radius: 15px !important;
+                            "
+                          >
+                            <!-- More info about {{ item }} -->
+                            <v-table class="nested-table">
+                              <thead>
+                                <tr>
+                                  <th class="text-center"></th>
+                                  <th class="text-center">
+                                    {{ $t("table.thead.kind") }}
+                                  </th>
+                                  <th class="text-center">
+                                    {{ $t("table.thead.price") }}
+                                  </th>
+                                  <th class="text-center">
+                                    {{ $t("table.thead.change") }}
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <div class="status status-success"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.change") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsnum") }}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="status status-active"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.change") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsnum") }}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="status status-fail"></div>
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.price") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.change") }}
+                                  </td>
+                                  <td class="text-center serif">
+                                    {{ $t("table.tbody.dealsnum") }}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </v-table>
+                          </v-card>
                         </td>
                       </tr>
                     </template>
@@ -515,10 +616,10 @@
         <v-btn @click="dialog = true" class="buttonpop">
           <v-img src="@/assets/images/citizen.jpg" />
           <p style="position: absolute; top: 0; right: 45px">
-            <span class="serif">555</span>
+            <span class="serif">0</span>
           </p>
           <p>{{ $t("home.button") }}</p>
-          <span class="spannum"> {{ $t("home.button2") }} </span>
+          <span class="spannum"> <a href="/">{{ $t("home.button2") }}</a> </span>
         </v-btn>
       </v-card>
     </v-container>
@@ -583,7 +684,7 @@ export default defineComponent({
 
   setup() {
     const tab = ref(null);
-    const filtertab = ref(null);
+    const filtertab = ref("x");
     const dialog = ref(false);
     const showChart = ref(false);
     // const date = new Date().toISOString().substr(0, 10);
@@ -595,14 +696,22 @@ export default defineComponent({
         kind: "شقة",
         dealsnum: 35,
         price: 22,
+        hasDetails: true,
+        actions: "",
+      },
+      {
+        kind: "فيلا",
+        dealsnum: 35,
+        price: 22,
+        hasDetails: false,
         actions: "",
       },
     ]);
 
     const payload = ref({
-      region: null,
-      city: null,
-      district: null,
+      region: "riyadh",
+      city: "kharj",
+      district: "alsalam",
       from: null,
     });
     const { t } = useI18n();
