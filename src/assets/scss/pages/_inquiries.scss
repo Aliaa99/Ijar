@@ -1,3 +1,39 @@
 .form-card {
     margin: -7rem 2rem 4rem 2rem;
 }
+
+// comparison
+.responsive-style{
+    @media (max-width: 1279px) {
+        bottom: -7rem;
+      }
+      @media (max-width: 600px) {
+        bottom: -16rem;
+      }
+    
+}
+.res-style{
+    @media (max-width: 600px) {
+        margin-top: 18rem !important;
+      }
+}
+// search
+.responsive-style2{
+    @media (max-width: 969px) {
+        bottom: -10rem;
+      }
+      @media (max-width: 600px) {
+        bottom: -25rem;
+      }
+    
+}
+.res-style2{
+    @media (max-width: 969px) {
+        margin-top: 13rem ;
+
+      }
+
+    @media (max-width: 600px) {
+        margin-top: 30rem ;
+      }
+}

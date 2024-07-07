@@ -72,14 +72,14 @@
               <span class="logotitle mx-5">المؤشر الايجاري</span>
             </v-col>
 
-            <v-col cols="2">
+            <v-col cols="2" class="lang-btn-style">
               <slot />
             </v-col>
 
             <v-col cols="2">
               <v-menu transition="scale-transition" v-model="menu">
                 <template v-slot:activator="{ props }">
-                  <v-btn color="primary" style="min-width: 36px" v-bind="props">
+                  <v-btn color="primary" class="menu-btn" style="min-width: 36px" v-bind="props">
                     <v-icon
                       class="hidden-md-and-up"
                       :icon="menu ? 'mdi-close' : 'mdi-menu'"

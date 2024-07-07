@@ -27,6 +27,9 @@
 
 .filter {
   &-card {
+    overflow: visible;
+    box-shadow: 0px 1px 2px 1px #ebebeb !important;
+
     .v-label {
       color: black !important;
       opacity: 1 !important;
@@ -37,6 +40,19 @@
       right: 50px;
       bottom: -41px;
     }
+    @media (min-width: 600px) {
+      position: absolute !important;
+      left: 50px;
+      right: 50px;
+      bottom: -100px;
+    }
+    @media (max-width: 600px) {
+      position: absolute !important;
+      left: 25px;
+      right: 25px;
+      bottom: -200px;
+    }
+
     border-radius: 15px !important;
     .v-input__details {
       display: none !important;
@@ -76,8 +92,12 @@
 
 .filter-tabs {
   border-radius: 15px !important;
-  margin: 7rem auto;
-  .v-tab-item--selected{
+  margin: 9rem auto;
+  @media (max-width: 600px) {
+    margin: 15rem auto;
+  }
+
+  .v-tab-item--selected {
     color: white !important;
     background-color: $primary-md;
   }
@@ -95,6 +115,9 @@
       tr {
         td {
           padding: 0 !important;
+          div {
+            display: flex;
+          }
         }
         p {
           font-size: 11px;
@@ -119,6 +142,7 @@
     }
   }
   .nested-table {
+    width: 100% !important;
     thead {
       background-color: $primary-md !important;
       color: white !important;
@@ -191,7 +215,17 @@
     }
   }
 }
-
+.td-no-padding {
+  .v-table {
+    .v-data-table__tr {
+      td {
+        &:first-child {
+          padding-right: 1rem !important;
+        }
+      }
+    }
+  }
+}
 .v-dialog {
   .v-card {
     overflow: visible !important;
@@ -218,14 +252,14 @@
   font-size: 14px;
   min-height: 70px;
   @media (max-width: 959px) {
-    right: 0px;
+    // right: 0px;
   }
   .v-img {
     width: 35px;
     height: 35px;
     border-radius: 50%;
   }
-  p{
+  p {
     padding-top: 18px !important;
   }
   .spannum {
@@ -233,34 +267,32 @@
     padding-top: 20px;
   }
 }
-.v-table{
-  .v-chip{
+.v-table {
+  .v-chip {
     @media (max-width: 1279px) {
-      display: block;
-      width: 50px;
-      margin: 2px 0px !important;
-
+      // display: block;
+      // width: 50px;
+      // margin: 2px 0px !important;
     }
   }
 }
-.filter-newstyle{
-  .v-slide-group{
+.filter-newstyle {
+  .v-slide-group {
     @media (max-width: 600px) {
       display: block;
       overflow: visible;
       height: 90px;
-  
     }
-    .v-slide-group__content{
+    .v-slide-group__content {
       @media (max-width: 600px) {
-        display: block;    
+        display: block;
       }
-    .filter-tabs-btns{
-      @media (max-width: 600px) {
-        margin: 5px;
-        display: inline-block;
+      .filter-tabs-btns {
+        @media (max-width: 600px) {
+          margin: 5px;
+          display: inline-block;
+        }
       }
     }
-   }
   }
 }

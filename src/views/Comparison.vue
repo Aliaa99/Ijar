@@ -16,7 +16,7 @@
             </template>
           </v-list-item>
         </v-list>
-        <v-card class="filter-card py-8 px-10" elevation="0">
+        <v-card class="filter-card responsive-style py-8 px-10" elevation="0">
           <v-row>
             <v-col lg="10" md="12" sm="12" cols="12">
               <v-row>
@@ -125,7 +125,7 @@
           </v-row>
         </v-card>
       </v-card>
-      <v-card class="filter-tabs filter-newstyle pa-4">
+      <v-card class="filter-tabs filter-newstyle  res-style pa-4">
         <v-tabs v-model="tab" color="primary">
           <section class="filter-tabs-btns">
             <v-tab value="one">{{ $t("pointer.tabs.housing") }}</v-tab>
@@ -847,9 +847,9 @@ export default defineComponent({
     ]);
 
     const payload = ref({
-      region: null,
-      city: null,
-      district: null,
+      region: 'riyadh',
+      city: 'kharj',
+      district: 'alsalam',
       from: null,
     });
     const { t } = useI18n();

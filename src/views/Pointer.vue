@@ -18,10 +18,7 @@
         </v-list>
         <v-card
           class="filter-card py-8 px-10 pt-12"
-          style="
-            overflow: visible;
-            box-shadow: 0px 1px 2px 1px #ebebeb !important;
-          "
+          
           elevation="0"
         >
           <v-row>

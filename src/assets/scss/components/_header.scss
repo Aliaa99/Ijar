@@ -70,6 +70,13 @@
   left: 0;
   right: 0;
   $breakpoint-tablet: 550px;
+  @media (max-width: 900px) {
+    height: 65px;
+  }
+  @media (max-width: 400px) {
+    height: 55px;
+  }
+
   img {
     margin: -10px;
   }
@@ -115,4 +122,16 @@
   @media (max-width: 600px) {
     font-size: 12px !important;
   }
+}
+
+.menu-btn{
+  @media (max-width: 400px) {
+    margin-top: -10px !important;
+  }
+}
+.lang-btn-style{
+  @media (max-width: 400px) {
+    padding: 2px !important;
+  }
+
 }

@@ -187,7 +187,8 @@
     },
     "table":{
       "district":"حي",
-      "location":"موقع"
+      "location":"تحكم",
+      "price":"متوسط السعر"
     }
   }
 }
